@@ -1,24 +1,38 @@
 import pystac
 import os
-from pystac.extensions.rasters import RasterBand
-from pystac.extensions.rasters import RasterExtension
+from pystac.extensions.raster import RasterBand
+from pystac.extensions.raster import RasterExtension
 from pystac.extensions.projection import ProjectionExtension
-import boto3
 from datetime import datetime
 import rasterio
 from shapely.geometry import Polygon, mapping
 
 
 
-def stac_create_item(catalog, img_path, name):
+def stac_create_item(file_path, file_url, name, datetime, collection, properties={}, units=''):
 	
-	bbox, footprint, crs, resolution, dtype = get_raster_metadata(img_path)
+	bbox, footprint, crs, resolution, dtype = get_raster_metadata(file_path)
 	asset=pystac.Asset(
-	    href="https://object-arbutus.cloud.computecanada.ca/bq-io/"+name+".tif", 
-	    media_type=pystac.MediaType.GEOTIFF
+	    href=file_url, 
+	    media_type=pystac.MediaType.COG
 	)
+	raster_bands = [RasterBand.create(
+			spatial_resolution=resolution,
+			unit=units,
+			data_type=dtype
+		)
+	]
 	raster_ext=RasterExtension.ext(asset)
 	raster_ext.bands=raster_bands
+
+	item = pystac.Item(id=name,
+				geometry=footprint,
+				bbox=bbox,
+				datetime=datetime,
+				properties=properties,
+				collection=collection,
+			)
+
 	assets=item.add_asset(
 	    key=name, 
 	    asset=asset
@@ -27,21 +41,8 @@ def stac_create_item(catalog, img_path, name):
 	ProjectionExtension.add_to(item)
 	proj_ext=ProjectionExtension.ext(item)
 	proj_ext.epsg=crs
-
-	raster_bands = [RasterBand.create(
-			spatial_resolution=resolution,
-			unit='m',
-			data_type=dtype
-		)
-	]
-
-	item = pystac.Item(id=name,
-				geometry=footprint,
-				bbox=bbox,
-				datetime=datetime.utcnow(),
-				properties={}
-			)
-
+	item.set_self_href('./'+collection.id+'/'+name+'.json')
+	return item
 
 
 def get_raster_metadata(raster_uri):
@@ -54,8 +55,13 @@ def get_raster_metadata(raster_uri):
             [bounds.right, bounds.top],
             [bounds.right, bounds.bottom]
         ])
-        pixelSizeX, pixelSizeY  = raster.res
-        return (bbox, mapping(footprint), raster.meta.crs, pixelSizeX, raster.meta.dtype)
+        if (ds.meta['crs'].to_epsg() == None):
+        	crs=ds.meta['crs'].to_string()
+        else:
+        	crs=ds.meta['crs'].to_epsg()
+
+        pixelSizeX, pixelSizeY  = ds.res
+        return (bbox, mapping(footprint), crs, pixelSizeX, ds.meta['dtype'])
 
 
 
