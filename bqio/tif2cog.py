@@ -15,9 +15,9 @@ def tif2cog(input_paths: List[Path], output_cog_path: Path, type: str) -> None:
         temp_vrt_path = input_paths[0]
     
     if (type=='raw'): 
-        cog_command = ['gdalwarp', '-of', 'COG', '-co', 'COMPRESS=DEFLATE', '-co', 'OVERVIEWS=IGNORE_EXISTING','-wo','NUM_THREADS=4', temp_vrt_path, output_cog_path]
+        cog_command = ['gdalwarp', '-of', 'COG', '-co', 'COMPRESS=DEFLATE', '-co', 'OVERVIEWS=IGNORE_EXISTING','-wo','NUM_THREADS=4', '-co', 'NUM_THREADS=ALL_CPUS','-multi', temp_vrt_path, output_cog_path]
     elif (type=='display'):
-        cog_command = ['gdalwarp', '-of', 'COG', '-co', 'TILING_SCHEME=GoogleMapsCompatible', '-co', 'COMPRESS=DEFLATE', '-co', 'OVERVIEWS=IGNORE_EXISTING', '-wo','NUM_THREADS=4', temp_vrt_path, output_cog_path]
+        cog_command = ['gdalwarp', '-of', 'COG', '-co', 'TILING_SCHEME=GoogleMapsCompatible', '-co', 'COMPRESS=DEFLATE', '-co', 'NUM_THREADS=ALL_CPUS','-co', 'OVERVIEWS=IGNORE_EXISTING', '-wo','NUM_THREADS=4','-multi', temp_vrt_path, output_cog_path]
 
     run_command(cog_command)
 

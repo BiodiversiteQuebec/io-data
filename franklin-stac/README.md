@@ -3,6 +3,7 @@
 To run: 
 
 ````{bash}
+docker-compose run franklin migrate
 docker-compose run franklin import-catalog --catalog-root /opt/franklin/stac/catalog.json
 docker-compose up -d franklin 
 ````
