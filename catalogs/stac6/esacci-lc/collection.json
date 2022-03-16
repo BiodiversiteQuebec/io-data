@@ -1,0 +1,186 @@
+{
+  "type": "Collection",
+  "id": "esacci-lc",
+  "stac_version": "1.0.0",
+  "description": "Global annual land cover map at 300 m based on the full archives of 300 m MERIS, 1 km SPOT-VEGETATION, 1 km PROBA-V and 1 km AVHRR surface reflectance 7-day composites",
+  "links": [
+    {
+      "rel": "root",
+      "href": "../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./esacci-lc-1992/esacci-lc-1992.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./esacci-lc-1993/esacci-lc-1993.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./esacci-lc-1994/esacci-lc-1994.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./esacci-lc-1995/esacci-lc-1995.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./esacci-lc-1996/esacci-lc-1996.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./esacci-lc-1997/esacci-lc-1997.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./esacci-lc-1998/esacci-lc-1998.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./esacci-lc-1999/esacci-lc-1999.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./esacci-lc-2000/esacci-lc-2000.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./esacci-lc-2001/esacci-lc-2001.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./esacci-lc-2002/esacci-lc-2002.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./esacci-lc-2003/esacci-lc-2003.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./esacci-lc-2004/esacci-lc-2004.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./esacci-lc-2005/esacci-lc-2005.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./esacci-lc-2006/esacci-lc-2006.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./esacci-lc-2007/esacci-lc-2007.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./esacci-lc-2008/esacci-lc-2008.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./esacci-lc-2009/esacci-lc-2009.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./esacci-lc-2010/esacci-lc-2010.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./esacci-lc-2011/esacci-lc-2011.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./esacci-lc-2012/esacci-lc-2012.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./esacci-lc-2013/esacci-lc-2013.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./esacci-lc-2014/esacci-lc-2014.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./esacci-lc-2015/esacci-lc-2015.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./esacci-lc-2016/esacci-lc-2016.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./esacci-lc-2017/esacci-lc-2017.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./esacci-lc-2018/esacci-lc-2018.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./esacci-lc-2019/esacci-lc-2019.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./esacci-lc-2020/esacci-lc-2020.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "parent",
+      "href": "../catalog.json",
+      "type": "application/json"
+    }
+  ],
+  "stac_extensions": [],
+  "title": "ESA Land cover time series",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -180,
+          -90,
+          180,
+          90
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          "1992-01-01T00:00:00Z",
+          "2020-12-31T00:00:00Z"
+        ]
+      ]
+    }
+  },
+  "license": "CC-BY-SA-4.0"
+}

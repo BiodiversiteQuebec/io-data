@@ -1,0 +1,85 @@
+{
+  "type": "Feature",
+  "stac_version": "1.0.0",
+  "id": "GHMTS",
+  "properties": {
+    "description": "Global Human Modification of Terrestrial Systems",
+    "version": "2016",
+    "proj:epsg": 4326,
+    "datetime": "2016-01-01T00:00:00Z"
+  },
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          -179.99999991978757,
+          -60.000802620970404
+        ],
+        [
+          -179.99999991978757,
+          83.64317286591495
+        ],
+        [
+          179.9971167959037,
+          83.64317286591495
+        ],
+        [
+          179.9971167959037,
+          -60.000802620970404
+        ],
+        [
+          -179.99999991978757,
+          -60.000802620970404
+        ]
+      ]
+    ]
+  },
+  "links": [
+    {
+      "rel": "root",
+      "href": "../../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "collection",
+      "href": "../collection.json",
+      "type": "application/json",
+      "title": "Global Human Modification of Terrestrial Systems"
+    },
+    {
+      "rel": "parent",
+      "href": "../collection.json",
+      "type": "application/json",
+      "title": "Global Human Modification of Terrestrial Systems"
+    },
+    {
+      "rel": "self",
+      "href": "https://io.biodiversite-quebec.ca/stac/ghmts/GHMTS/GHMTS.json",
+      "type": "application/json"
+    }
+  ],
+  "assets": {
+    "GHMTS": {
+      "href": "https://object-arbutus.cloud.computecanada.ca/bq-io/io/GHMTS/lulc-human-modification-terrestrial-systems_geographic.tif",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "raster:bands": [
+        {
+          "data_type": "float32",
+          "spatial_resolution": 0.0098575333164209,
+          "unit": ""
+        }
+      ]
+    }
+  },
+  "bbox": [
+    -179.99999991978757,
+    -60.000802620970404,
+    179.9971167959037,
+    83.64317286591495
+  ],
+  "stac_extensions": [
+    "https://stac-extensions.github.io/projection/v1.0.0/schema.json"
+  ],
+  "collection": "ghmts"
+}
