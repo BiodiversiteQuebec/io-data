@@ -40,7 +40,11 @@ def stac_create_item(file_path, file_url, name, datetime, collection, properties
 
 	ProjectionExtension.add_to(item)
 	proj_ext=ProjectionExtension.ext(item)
-	proj_ext.epsg=crs
+	if(crs.isnumeric()):
+		proj_ext.epsg=crs
+	else:
+		proj_ext.epsg=None
+		proj_ext.wkt2=crs
 	item.set_self_href('./'+collection.id+'/'+name+'.json')
 	return item
 
