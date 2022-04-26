@@ -1,0 +1,149 @@
+---
+title: "stac Debug"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library("gdalcubes")
+library("rstac")
+library("tibble")
+library("sp")
+library("sf")
+library("dplyr")
+library("rgbif")
+library("tidyr")
+library("stars")
+```
+
+
+```{r cars, echo=FALSE}
+source("stac_functions.R")
+```
+
+### Exploring the STAC
+
+We print the different collections from the STAC:
+
+* chelsa-clim: current climate data (mean from 1981 to 2011) from CHELSA, categories "bioclim" (see the definitions of variables [here](https://www.worldclim.org/data/bioclim.html))
+* chelsa-clim-proj: climate data (bioclim list) projected from 2041-2070 and 2071-2100, for different climatic scenario and CHELSA climatic model (see [CHELSA project](https://chelsa-climate.org/cmip6/)).
+* chelsa-monthly: monthly bioclim variables from CHELSA #TO COMPLETE
+* esacci-lc: ESA land cover from 1992 to 2020 (yearly) (see [ESA-CCI project](https://www.esa-landcover-cci.org/)).
+* ghmts: global human modification index, a continuous 0-1 metric that reflects the proportion of a landscape modified, based on modeling the physical extents of 13 anthropogenic stressors (see [GHM project](https://sedac.ciesin.columbia.edu/data/set/lulc-human-modification-terrestrial-systems)).
+
+```{r}
+stac("http://io.biodiversite-quebec.ca/stac/") %>%
+  collections() %>%
+  get_request()
+
+``` 
+
+### Loading observations
+
+Let's download [Glyptemys insculpta](https://en.wikipedia.org/wiki/Wood_turtle) observations from GBIF.
+
+```{r}
+obs <- rgbif::occ_data(scientificName = "Glyptemys insculpta", hasCoordinate = TRUE, limit = 1000)
+obs <- dplyr::select(obs$data, decimalLongitude, decimalLatitude) %>%
+  dplyr::rename(lon = decimalLongitude) %>%
+  dplyr::rename(lat = decimalLatitude) 
+head(obs)
+```
+
+We try to change the projection to "EPSG:6623"
+
+```{r}
+srs.obs <-"EPSG:4326" # initial observations projection system
+srs.cube <- "EPSG:6623" # targeted projected projection system
+obs.coords.proj <- create_projection(obs, lon = "lon", lat = "lat", 
+                                       srs.obs, srs.cube)
+
+```
+
+## Loading current climate data
+
+We load the cube from the collections "chelsa-climate",  using the observations points as an extent (option  use.obs = T and adding the observations points in parameter obs). If use.obs is FALSE, it is necessary to manually fill the args left, right, top and bottom. We subset the layers to three variables (to select all the variables, set the argument layers to NULL).
+CHELSA current climate correspond to the aggregation of climate data from 1981 to 2010. Thus, here, t0 = t1 (by default, initial date of the period). 
+The temporal resolution corresponds to a duration, which has to be in the [ISO 8601] format (https://en.wikipedia.org/wiki/ISO_8601), e.g. "P1Y" for a yearly aggregation, "P1M" for a monthly aggregation. Here it is not a useful parameter as data are yet aggregated over the 30-years period. 
+
+Spatial resolution is set to 1 km.
+
+Aggregation and resampling methods can be chosen, corresponding to the function applied to the pixel values when aggregating or disaggregating.
+
+```{r, warning=FALSE}
+
+cube <- 
+  load_cube(stac_path = "http://io.biodiversite-quebec.ca/stac/",
+           limit = 5000, 
+           collections = c("chelsa-monthly"), 
+           use.obs = T,
+           obs = obs.coords.proj,
+           buffer.box = 0,
+           srs.cube = srs.cube,
+           t0 = "1981-01-01",
+           t1 = "1981-01-01",
+           spatial.res = 1000, # in meters
+           temporal.res = "P1Y",
+           aggregation = "mean",
+           resampling = "near") 
+```
+Fails, raster is empty:
+```{r, warning=FALSE}
+r <- cube_to_raster(cube %>% select_bands("clt_01_1981"))
+plot(r)
+
+```
+
+We keep the collection projection
+```{r}
+srs.obs <-"EPSG:4326" # initial observations projection system
+srs.cube <- "EPSG:4326" # targeted projected projection system
+obs.coords.proj <- create_projection(obs, lon = "lon", lat = "lat", 
+                                       srs.obs, srs.cube)
+
+
+cube <- 
+  load_cube(stac_path = "http://io.biodiversite-quebec.ca/stac/",
+           limit = 5000, 
+           collections = c("chelsa-monthly"), 
+           use.obs = T,
+           obs = obs.coords.proj,
+           buffer.box = 0,
+           srs.cube = srs.cube,
+           t0 = "1981-01-01",
+           t1 = "1981-01-01",
+           spatial.res = 0.08, # in degree
+           temporal.res = "P1Y",
+           aggregation = "mean",
+           resampling = "near") 
+
+
+  it_obj <- s |>
+    rstac::stac_search(bbox = bbox.wgs84, collections = collections, 
+                       datetime = datetime,
+                       limit = limit) |> rstac::get_request() # bbox in decimal lon/lat
+  
+  # If no layers is selected, get all the layers by default
+  if (is.null(layers)) {
+    layers <- unlist(lapply(it_obj$features, function(x){names(x$assets)}))
+    
+  }
+  
+
+  st <- gdalcubes::stac_image_collection(it_obj$features, asset_names = layers) 
+  
+  v <- gdalcubes::cube_view(srs = srs.cube,  extent = list(t0 = t0, t1 = t1,
+                                                           left = left, right = right,  top = top, bottom = bottom),
+                            dx = spatial.res, dy = spatial.res, dt = temporal.res, aggregation = aggregation, resampling = resampling)
+  gdalcubes::gdalcubes_options(parallel = 4)
+  cube <- gdalcubes::raster_cube(st, v)
+
+
+```
+
+It works!
+
+```{r, warning=FALSE}
+r <- cube_to_raster(cube %>% select_bands("clt_01_1981"))
+plot(r)
+```

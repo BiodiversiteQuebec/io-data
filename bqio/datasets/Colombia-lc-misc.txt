@@ -1,0 +1,13 @@
+ogr2ogr -t_srs  'PROJCS["MAGNA-SIRGAS / Colombia Bogota zone",GEOGCS["MAGNA-SIRGAS",DATUM["Marco_Geocentrico_Nacional_de_Referencia",SPHEROID["GRS 1980",6378137,298.257222101,AUTHORITY["EPSG","7019"]],TOWGS84[0,0,0,0,0,0,0],AUTHORITY["EPSG","6686"]],PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],AUTHORITY["EPSG","4686"]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",4.596200416666666],PARAMETER["central_meridian",-74.07750791666666],PARAMETER["scale_factor",1],PARAMETER["false_easting",1000000],PARAMETER["false_northing",1000000],UNIT["metre",1,AUTHORITY["EPSG","9001"]],AUTHORITY["EPSG","3116"]]' -f GPKG Cobertura_tierra_2010_2012.gpkg Cobertura_tierra_2010_2012.shp
+
+ogr2ogr -t_srs  'PROJCS["MAGNA-SIRGAS / Colombia Bogota zone",GEOGCS["MAGNA-SIRGAS",DATUM["Marco_Geocentrico_Nacional_de_Referencia",SPHEROID["GRS 1980",6378137,298.257222101,AUTHORITY["EPSG","7019"]],TOWGS84[0,0,0,0,0,0,0],AUTHORITY["EPSG","6686"]],PRIMEM["Greenwich",0,AUTHORITY["EPSG","8901"]],UNIT["degree",0.0174532925199433,AUTHORITY["EPSG","9122"]],AUTHORITY["EPSG","4686"]],PROJECTION["Transverse_Mercator"],PARAMETER["latitude_of_origin",4.596200416666666],PARAMETER["central_meridian",-74.07750791666666],PARAMETER["scale_factor",1],PARAMETER["false_easting",1000000],PARAMETER["false_northing",1000000],UNIT["metre",1,AUTHORITY["EPSG","9001"]],AUTHORITY["EPSG","3116"]]' -f GPKG Cobertura_tierra_2000_2002.gpkg cobertura_tierra2000_2002V2.shp
+
+
+#include islands, but missing small part in East
+docker-compose run gdal-python gdal_rasterize  -te -193983 15738 1775067 2220258  -tr 30 30 -co "COMPRESS=DEFLATE" -l Cobertura_tierra_2010_2012 -a CODIGO /bqio/Cobertura_tierra_2010_2012/SHP/Cobertura_tierra_2010_2012.gpkg /bqio/colombia_cobertura_tierra_2010_2012.tif
+
+#without islands
+docker-compose run gdal-python gdal_rasterize  -te  152612 22983 1818752 1930023 -tr 30 30 -co "COMPRESS=DEFLATE" -l Cobertura_tierra_2010_2012 -a CODIGO /bqio/Cobertura_tierra_2010_2012/SHP/Cobertura_tierra_2010_2012.gpkg /bqio/colombia_cobertura_tierra_2010_2012.tif
+
+docker-compose run gdal-python gdal_rasterize  -te  152612 22983 1818752 1930023 -tr 30 30 -co "COMPRESS=DEFLATE" -l cobertura_tierra2000_2002V2 -a CODIGO /bqio/colombia-lc/Cobertura_tierra_2000_2002/shape/Cobertura_tierra_2000_2002.gpkg /bqio/colombia-lc/colombia_cobertura_tierra_2000_2002.tif
+
