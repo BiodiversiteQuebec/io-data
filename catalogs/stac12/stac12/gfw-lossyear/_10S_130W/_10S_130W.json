@@ -1,0 +1,87 @@
+{
+  "type": "Feature",
+  "stac_version": "1.0.0",
+  "id": "_10S_130W",
+  "properties": {
+    "full_filename": "Hansen_GFC-2020-v1.8_lossyear_10S_130W.tif",
+    "description": "Global Forest Watch - Loss year - _10S_130W",
+    "grid": "_10S_130W",
+    "proj:epsg": null,
+    "proj:wkt2": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4326\"]]",
+    "datetime": "2000-01-01T00:00:00Z"
+  },
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          -130.0,
+          -20.0
+        ],
+        [
+          -130.0,
+          -10.0
+        ],
+        [
+          -120.0,
+          -10.0
+        ],
+        [
+          -120.0,
+          -20.0
+        ],
+        [
+          -130.0,
+          -20.0
+        ]
+      ]
+    ]
+  },
+  "links": [
+    {
+      "rel": "root",
+      "href": "../../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "collection",
+      "href": "../collection.json",
+      "type": "application/json",
+      "title": "Global Forest Watch - Loss year"
+    },
+    {
+      "rel": "parent",
+      "href": "../collection.json",
+      "type": "application/json",
+      "title": "Global Forest Watch - Loss year"
+    },
+    {
+      "rel": "self",
+      "href": "https://io.biodiversite-quebec.ca/stac/gfw-lossyear/_10S_130W/_10S_130W.json",
+      "type": "application/json"
+    }
+  ],
+  "assets": {
+    "_10S_130W": {
+      "href": "https://object-arbutus.cloud.computecanada.ca/bq-io/io/GFW/lossyear/Hansen_GFC-2020-v1.8_lossyear_10S_130W.tif",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "raster:bands": [
+        {
+          "data_type": "uint8",
+          "spatial_resolution": 0.00025,
+          "unit": ""
+        }
+      ]
+    }
+  },
+  "bbox": [
+    -130.0,
+    -20.0,
+    -120.0,
+    -10.0
+  ],
+  "stac_extensions": [
+    "https://stac-extensions.github.io/projection/v1.0.0/schema.json"
+  ],
+  "collection": "gfw-lossyear"
+}

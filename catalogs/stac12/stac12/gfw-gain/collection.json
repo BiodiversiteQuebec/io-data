@@ -1,0 +1,2561 @@
+{
+  "type": "Collection",
+  "id": "gfw-gain",
+  "stac_version": "1.0.0",
+  "description": "Global Forest Watch - Gain",
+  "links": [
+    {
+      "rel": "root",
+      "href": "../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_00N_000E/_gain_00N_000E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_00N_010E/_gain_00N_010E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_00N_010W/_gain_00N_010W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_00N_020E/_gain_00N_020E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_00N_020W/_gain_00N_020W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_00N_030E/_gain_00N_030E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_00N_030W/_gain_00N_030W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_00N_040E/_gain_00N_040E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_00N_040W/_gain_00N_040W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_00N_050E/_gain_00N_050E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_00N_050W/_gain_00N_050W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_00N_060E/_gain_00N_060E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_00N_060W/_gain_00N_060W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_00N_070E/_gain_00N_070E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_00N_070W/_gain_00N_070W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_00N_080E/_gain_00N_080E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_00N_080W/_gain_00N_080W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_00N_090E/_gain_00N_090E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_00N_090W/_gain_00N_090W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_00N_100E/_gain_00N_100E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_00N_100W/_gain_00N_100W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_00N_110E/_gain_00N_110E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_00N_110W/_gain_00N_110W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_00N_120E/_gain_00N_120E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_00N_120W/_gain_00N_120W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_00N_130E/_gain_00N_130E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_00N_130W/_gain_00N_130W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_00N_140E/_gain_00N_140E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_00N_140W/_gain_00N_140W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_00N_150E/_gain_00N_150E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_00N_150W/_gain_00N_150W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_00N_160E/_gain_00N_160E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_00N_160W/_gain_00N_160W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_00N_170E/_gain_00N_170E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_00N_170W/_gain_00N_170W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_00N_180W/_gain_00N_180W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10N_000E/_gain_10N_000E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10N_010E/_gain_10N_010E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10N_010W/_gain_10N_010W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10N_020E/_gain_10N_020E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10N_020W/_gain_10N_020W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10N_030E/_gain_10N_030E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10N_030W/_gain_10N_030W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10N_040E/_gain_10N_040E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10N_040W/_gain_10N_040W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10N_050E/_gain_10N_050E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10N_050W/_gain_10N_050W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10N_060E/_gain_10N_060E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10N_060W/_gain_10N_060W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10N_070E/_gain_10N_070E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10N_070W/_gain_10N_070W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10N_080E/_gain_10N_080E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10N_080W/_gain_10N_080W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10N_090E/_gain_10N_090E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10N_090W/_gain_10N_090W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10N_100E/_gain_10N_100E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10N_100W/_gain_10N_100W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10N_110E/_gain_10N_110E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10N_110W/_gain_10N_110W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10N_120E/_gain_10N_120E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10N_120W/_gain_10N_120W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10N_130E/_gain_10N_130E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10N_130W/_gain_10N_130W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10N_140E/_gain_10N_140E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10N_140W/_gain_10N_140W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10N_150E/_gain_10N_150E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10N_150W/_gain_10N_150W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10N_160E/_gain_10N_160E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10N_160W/_gain_10N_160W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10N_170E/_gain_10N_170E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10N_170W/_gain_10N_170W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10N_180W/_gain_10N_180W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10S_000E/_gain_10S_000E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10S_010E/_gain_10S_010E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10S_010W/_gain_10S_010W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10S_020E/_gain_10S_020E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10S_020W/_gain_10S_020W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10S_030E/_gain_10S_030E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10S_030W/_gain_10S_030W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10S_040E/_gain_10S_040E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10S_040W/_gain_10S_040W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10S_050E/_gain_10S_050E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10S_050W/_gain_10S_050W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10S_060E/_gain_10S_060E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10S_060W/_gain_10S_060W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10S_070E/_gain_10S_070E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10S_070W/_gain_10S_070W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10S_080E/_gain_10S_080E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10S_080W/_gain_10S_080W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10S_090E/_gain_10S_090E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10S_090W/_gain_10S_090W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10S_100E/_gain_10S_100E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10S_100W/_gain_10S_100W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10S_110E/_gain_10S_110E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10S_110W/_gain_10S_110W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10S_120E/_gain_10S_120E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10S_120W/_gain_10S_120W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10S_130E/_gain_10S_130E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10S_130W/_gain_10S_130W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10S_140E/_gain_10S_140E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10S_140W/_gain_10S_140W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10S_150E/_gain_10S_150E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10S_150W/_gain_10S_150W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10S_160E/_gain_10S_160E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10S_160W/_gain_10S_160W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10S_170E/_gain_10S_170E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10S_170W/_gain_10S_170W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_10S_180W/_gain_10S_180W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20N_000E/_gain_20N_000E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20N_010E/_gain_20N_010E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20N_010W/_gain_20N_010W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20N_020E/_gain_20N_020E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20N_020W/_gain_20N_020W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20N_030E/_gain_20N_030E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20N_030W/_gain_20N_030W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20N_040E/_gain_20N_040E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20N_040W/_gain_20N_040W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20N_050E/_gain_20N_050E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20N_050W/_gain_20N_050W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20N_060E/_gain_20N_060E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20N_060W/_gain_20N_060W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20N_070E/_gain_20N_070E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20N_070W/_gain_20N_070W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20N_080E/_gain_20N_080E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20N_080W/_gain_20N_080W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20N_090E/_gain_20N_090E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20N_090W/_gain_20N_090W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20N_100E/_gain_20N_100E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20N_100W/_gain_20N_100W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20N_110E/_gain_20N_110E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20N_110W/_gain_20N_110W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20N_120E/_gain_20N_120E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20N_120W/_gain_20N_120W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20N_130E/_gain_20N_130E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20N_130W/_gain_20N_130W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20N_140E/_gain_20N_140E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20N_140W/_gain_20N_140W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20N_150E/_gain_20N_150E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20N_150W/_gain_20N_150W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20N_160E/_gain_20N_160E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20N_160W/_gain_20N_160W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20N_170E/_gain_20N_170E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20N_170W/_gain_20N_170W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20N_180W/_gain_20N_180W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20S_000E/_gain_20S_000E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20S_010E/_gain_20S_010E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20S_010W/_gain_20S_010W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20S_020E/_gain_20S_020E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20S_020W/_gain_20S_020W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20S_030E/_gain_20S_030E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20S_030W/_gain_20S_030W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20S_040E/_gain_20S_040E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20S_040W/_gain_20S_040W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20S_050E/_gain_20S_050E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20S_050W/_gain_20S_050W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20S_060E/_gain_20S_060E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20S_060W/_gain_20S_060W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20S_070E/_gain_20S_070E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20S_070W/_gain_20S_070W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20S_080E/_gain_20S_080E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20S_080W/_gain_20S_080W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20S_090E/_gain_20S_090E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20S_090W/_gain_20S_090W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20S_100E/_gain_20S_100E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20S_100W/_gain_20S_100W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20S_110E/_gain_20S_110E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20S_110W/_gain_20S_110W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20S_120E/_gain_20S_120E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20S_120W/_gain_20S_120W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20S_130E/_gain_20S_130E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20S_130W/_gain_20S_130W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20S_140E/_gain_20S_140E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20S_140W/_gain_20S_140W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20S_150E/_gain_20S_150E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20S_150W/_gain_20S_150W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20S_160E/_gain_20S_160E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20S_160W/_gain_20S_160W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20S_170E/_gain_20S_170E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20S_170W/_gain_20S_170W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_20S_180W/_gain_20S_180W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30N_000E/_gain_30N_000E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30N_010E/_gain_30N_010E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30N_010W/_gain_30N_010W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30N_020E/_gain_30N_020E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30N_020W/_gain_30N_020W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30N_030E/_gain_30N_030E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30N_030W/_gain_30N_030W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30N_040E/_gain_30N_040E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30N_040W/_gain_30N_040W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30N_050E/_gain_30N_050E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30N_050W/_gain_30N_050W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30N_060E/_gain_30N_060E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30N_060W/_gain_30N_060W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30N_070E/_gain_30N_070E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30N_070W/_gain_30N_070W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30N_080E/_gain_30N_080E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30N_080W/_gain_30N_080W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30N_090E/_gain_30N_090E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30N_090W/_gain_30N_090W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30N_100E/_gain_30N_100E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30N_100W/_gain_30N_100W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30N_110E/_gain_30N_110E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30N_110W/_gain_30N_110W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30N_120E/_gain_30N_120E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30N_120W/_gain_30N_120W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30N_130E/_gain_30N_130E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30N_130W/_gain_30N_130W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30N_140E/_gain_30N_140E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30N_140W/_gain_30N_140W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30N_150E/_gain_30N_150E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30N_150W/_gain_30N_150W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30N_160E/_gain_30N_160E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30N_160W/_gain_30N_160W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30N_170E/_gain_30N_170E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30N_170W/_gain_30N_170W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30N_180W/_gain_30N_180W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30S_000E/_gain_30S_000E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30S_010E/_gain_30S_010E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30S_010W/_gain_30S_010W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30S_020E/_gain_30S_020E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30S_020W/_gain_30S_020W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30S_030E/_gain_30S_030E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30S_030W/_gain_30S_030W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30S_040E/_gain_30S_040E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30S_040W/_gain_30S_040W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30S_050E/_gain_30S_050E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30S_050W/_gain_30S_050W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30S_060E/_gain_30S_060E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30S_060W/_gain_30S_060W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30S_070E/_gain_30S_070E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30S_070W/_gain_30S_070W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30S_080E/_gain_30S_080E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30S_080W/_gain_30S_080W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30S_090E/_gain_30S_090E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30S_090W/_gain_30S_090W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30S_100E/_gain_30S_100E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30S_100W/_gain_30S_100W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30S_110E/_gain_30S_110E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30S_110W/_gain_30S_110W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30S_120E/_gain_30S_120E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30S_120W/_gain_30S_120W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30S_130E/_gain_30S_130E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30S_130W/_gain_30S_130W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30S_140E/_gain_30S_140E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30S_140W/_gain_30S_140W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30S_150E/_gain_30S_150E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30S_150W/_gain_30S_150W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30S_160E/_gain_30S_160E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30S_160W/_gain_30S_160W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30S_170E/_gain_30S_170E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30S_170W/_gain_30S_170W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_30S_180W/_gain_30S_180W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40N_000E/_gain_40N_000E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40N_010E/_gain_40N_010E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40N_010W/_gain_40N_010W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40N_020E/_gain_40N_020E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40N_020W/_gain_40N_020W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40N_030E/_gain_40N_030E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40N_030W/_gain_40N_030W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40N_040E/_gain_40N_040E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40N_040W/_gain_40N_040W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40N_050E/_gain_40N_050E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40N_050W/_gain_40N_050W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40N_060E/_gain_40N_060E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40N_060W/_gain_40N_060W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40N_070E/_gain_40N_070E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40N_070W/_gain_40N_070W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40N_080E/_gain_40N_080E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40N_080W/_gain_40N_080W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40N_090E/_gain_40N_090E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40N_090W/_gain_40N_090W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40N_100E/_gain_40N_100E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40N_100W/_gain_40N_100W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40N_110E/_gain_40N_110E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40N_110W/_gain_40N_110W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40N_120E/_gain_40N_120E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40N_120W/_gain_40N_120W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40N_130E/_gain_40N_130E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40N_130W/_gain_40N_130W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40N_140E/_gain_40N_140E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40N_140W/_gain_40N_140W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40N_150E/_gain_40N_150E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40N_150W/_gain_40N_150W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40N_160E/_gain_40N_160E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40N_160W/_gain_40N_160W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40N_170E/_gain_40N_170E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40N_170W/_gain_40N_170W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40N_180W/_gain_40N_180W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40S_000E/_gain_40S_000E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40S_010E/_gain_40S_010E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40S_010W/_gain_40S_010W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40S_020E/_gain_40S_020E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40S_020W/_gain_40S_020W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40S_030E/_gain_40S_030E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40S_030W/_gain_40S_030W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40S_040E/_gain_40S_040E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40S_040W/_gain_40S_040W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40S_050E/_gain_40S_050E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40S_050W/_gain_40S_050W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40S_060E/_gain_40S_060E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40S_060W/_gain_40S_060W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40S_070E/_gain_40S_070E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40S_070W/_gain_40S_070W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40S_080E/_gain_40S_080E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40S_080W/_gain_40S_080W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40S_090E/_gain_40S_090E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40S_090W/_gain_40S_090W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40S_100E/_gain_40S_100E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40S_100W/_gain_40S_100W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40S_110E/_gain_40S_110E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40S_110W/_gain_40S_110W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40S_120E/_gain_40S_120E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40S_120W/_gain_40S_120W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40S_130E/_gain_40S_130E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40S_130W/_gain_40S_130W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40S_140E/_gain_40S_140E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40S_140W/_gain_40S_140W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40S_150E/_gain_40S_150E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40S_150W/_gain_40S_150W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40S_160E/_gain_40S_160E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40S_160W/_gain_40S_160W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40S_170E/_gain_40S_170E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40S_170W/_gain_40S_170W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_40S_180W/_gain_40S_180W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50N_000E/_gain_50N_000E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50N_010E/_gain_50N_010E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50N_010W/_gain_50N_010W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50N_020E/_gain_50N_020E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50N_020W/_gain_50N_020W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50N_030E/_gain_50N_030E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50N_030W/_gain_50N_030W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50N_040E/_gain_50N_040E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50N_040W/_gain_50N_040W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50N_050E/_gain_50N_050E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50N_050W/_gain_50N_050W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50N_060E/_gain_50N_060E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50N_060W/_gain_50N_060W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50N_070E/_gain_50N_070E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50N_070W/_gain_50N_070W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50N_080E/_gain_50N_080E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50N_080W/_gain_50N_080W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50N_090E/_gain_50N_090E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50N_090W/_gain_50N_090W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50N_100E/_gain_50N_100E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50N_100W/_gain_50N_100W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50N_110E/_gain_50N_110E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50N_110W/_gain_50N_110W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50N_120E/_gain_50N_120E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50N_120W/_gain_50N_120W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50N_130E/_gain_50N_130E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50N_130W/_gain_50N_130W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50N_140E/_gain_50N_140E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50N_140W/_gain_50N_140W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50N_150E/_gain_50N_150E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50N_150W/_gain_50N_150W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50N_160E/_gain_50N_160E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50N_160W/_gain_50N_160W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50N_170E/_gain_50N_170E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50N_170W/_gain_50N_170W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50N_180W/_gain_50N_180W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50S_000E/_gain_50S_000E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50S_010E/_gain_50S_010E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50S_010W/_gain_50S_010W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50S_020E/_gain_50S_020E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50S_020W/_gain_50S_020W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50S_030E/_gain_50S_030E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50S_030W/_gain_50S_030W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50S_040E/_gain_50S_040E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50S_040W/_gain_50S_040W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50S_050E/_gain_50S_050E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50S_050W/_gain_50S_050W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50S_060E/_gain_50S_060E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50S_060W/_gain_50S_060W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50S_070E/_gain_50S_070E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50S_070W/_gain_50S_070W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50S_080E/_gain_50S_080E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50S_080W/_gain_50S_080W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50S_090E/_gain_50S_090E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50S_090W/_gain_50S_090W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50S_100E/_gain_50S_100E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50S_100W/_gain_50S_100W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50S_110E/_gain_50S_110E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50S_110W/_gain_50S_110W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50S_120E/_gain_50S_120E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50S_120W/_gain_50S_120W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50S_130E/_gain_50S_130E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50S_130W/_gain_50S_130W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50S_140E/_gain_50S_140E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50S_140W/_gain_50S_140W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50S_150E/_gain_50S_150E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50S_150W/_gain_50S_150W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50S_160E/_gain_50S_160E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50S_160W/_gain_50S_160W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50S_170E/_gain_50S_170E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50S_170W/_gain_50S_170W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_50S_180W/_gain_50S_180W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_60N_000E/_gain_60N_000E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_60N_010E/_gain_60N_010E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_60N_010W/_gain_60N_010W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_60N_020E/_gain_60N_020E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_60N_020W/_gain_60N_020W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_60N_030E/_gain_60N_030E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_60N_030W/_gain_60N_030W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_60N_040E/_gain_60N_040E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_60N_040W/_gain_60N_040W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_60N_050E/_gain_60N_050E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_60N_050W/_gain_60N_050W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_60N_060E/_gain_60N_060E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_60N_060W/_gain_60N_060W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_60N_070E/_gain_60N_070E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_60N_070W/_gain_60N_070W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_60N_080E/_gain_60N_080E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_60N_080W/_gain_60N_080W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_60N_090E/_gain_60N_090E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_60N_090W/_gain_60N_090W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_60N_100E/_gain_60N_100E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_60N_100W/_gain_60N_100W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_60N_110E/_gain_60N_110E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_60N_110W/_gain_60N_110W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_60N_120E/_gain_60N_120E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_60N_120W/_gain_60N_120W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_60N_130E/_gain_60N_130E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_60N_130W/_gain_60N_130W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_60N_140E/_gain_60N_140E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_60N_140W/_gain_60N_140W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_60N_150E/_gain_60N_150E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_60N_150W/_gain_60N_150W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_60N_160E/_gain_60N_160E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_60N_160W/_gain_60N_160W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_60N_170E/_gain_60N_170E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_60N_170W/_gain_60N_170W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_60N_180W/_gain_60N_180W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_70N_000E/_gain_70N_000E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_70N_010E/_gain_70N_010E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_70N_010W/_gain_70N_010W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_70N_020E/_gain_70N_020E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_70N_020W/_gain_70N_020W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_70N_030E/_gain_70N_030E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_70N_030W/_gain_70N_030W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_70N_040E/_gain_70N_040E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_70N_040W/_gain_70N_040W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_70N_050E/_gain_70N_050E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_70N_050W/_gain_70N_050W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_70N_060E/_gain_70N_060E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_70N_060W/_gain_70N_060W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_70N_070E/_gain_70N_070E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_70N_070W/_gain_70N_070W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_70N_080E/_gain_70N_080E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_70N_080W/_gain_70N_080W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_70N_090E/_gain_70N_090E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_70N_090W/_gain_70N_090W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_70N_100E/_gain_70N_100E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_70N_100W/_gain_70N_100W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_70N_110E/_gain_70N_110E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_70N_110W/_gain_70N_110W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_70N_120E/_gain_70N_120E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_70N_120W/_gain_70N_120W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_70N_130E/_gain_70N_130E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_70N_130W/_gain_70N_130W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_70N_140E/_gain_70N_140E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_70N_140W/_gain_70N_140W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_70N_150E/_gain_70N_150E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_70N_150W/_gain_70N_150W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_70N_160E/_gain_70N_160E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_70N_160W/_gain_70N_160W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_70N_170E/_gain_70N_170E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_70N_170W/_gain_70N_170W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_70N_180W/_gain_70N_180W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_80N_000E/_gain_80N_000E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_80N_010E/_gain_80N_010E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_80N_010W/_gain_80N_010W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_80N_020E/_gain_80N_020E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_80N_020W/_gain_80N_020W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_80N_030E/_gain_80N_030E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_80N_030W/_gain_80N_030W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_80N_040E/_gain_80N_040E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_80N_040W/_gain_80N_040W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_80N_050E/_gain_80N_050E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_80N_050W/_gain_80N_050W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_80N_060E/_gain_80N_060E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_80N_060W/_gain_80N_060W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_80N_070E/_gain_80N_070E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_80N_070W/_gain_80N_070W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_80N_080E/_gain_80N_080E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_80N_080W/_gain_80N_080W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_80N_090E/_gain_80N_090E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_80N_090W/_gain_80N_090W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_80N_100E/_gain_80N_100E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_80N_100W/_gain_80N_100W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_80N_110E/_gain_80N_110E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_80N_110W/_gain_80N_110W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_80N_120E/_gain_80N_120E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_80N_120W/_gain_80N_120W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_80N_130E/_gain_80N_130E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_80N_130W/_gain_80N_130W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_80N_140E/_gain_80N_140E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_80N_140W/_gain_80N_140W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_80N_150E/_gain_80N_150E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_80N_150W/_gain_80N_150W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_80N_160E/_gain_80N_160E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_80N_160W/_gain_80N_160W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_80N_170E/_gain_80N_170E.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_80N_170W/_gain_80N_170W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./_gain_80N_180W/_gain_80N_180W.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "parent",
+      "href": "../catalog.json",
+      "type": "application/json"
+    }
+  ],
+  "stac_extensions": [],
+  "title": "Global Forest Watch - Gain",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -180,
+          -90,
+          180,
+          90
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          "2000-01-01T00:00:00Z",
+          "2020-12-31T00:00:00Z"
+        ]
+      ]
+    }
+  },
+  "license": "CC-BY-SA-4.0"
+}

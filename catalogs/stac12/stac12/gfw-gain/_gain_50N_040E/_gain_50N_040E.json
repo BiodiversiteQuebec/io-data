@@ -1,0 +1,87 @@
+{
+  "type": "Feature",
+  "stac_version": "1.0.0",
+  "id": "_gain_50N_040E",
+  "properties": {
+    "full_filename": "Hansen_GFC-2020-v1.8_gain_50N_040E.tif",
+    "description": "Global Forest Watch - Gain - _gain_50N_040E",
+    "grid": "_gain_50N_040E",
+    "proj:epsg": null,
+    "proj:wkt2": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4326\"]]",
+    "datetime": "2000-01-01T00:00:00Z"
+  },
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          40.0,
+          40.0
+        ],
+        [
+          40.0,
+          50.0
+        ],
+        [
+          50.0,
+          50.0
+        ],
+        [
+          50.0,
+          40.0
+        ],
+        [
+          40.0,
+          40.0
+        ]
+      ]
+    ]
+  },
+  "links": [
+    {
+      "rel": "root",
+      "href": "../../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "collection",
+      "href": "../collection.json",
+      "type": "application/json",
+      "title": "Global Forest Watch - Gain"
+    },
+    {
+      "rel": "parent",
+      "href": "../collection.json",
+      "type": "application/json",
+      "title": "Global Forest Watch - Gain"
+    },
+    {
+      "rel": "self",
+      "href": "https://io.biodiversite-quebec.ca/stac/gfw-gain/_gain_50N_040E/_gain_50N_040E.json",
+      "type": "application/json"
+    }
+  ],
+  "assets": {
+    "_gain_50N_040E": {
+      "href": "https://object-arbutus.cloud.computecanada.ca/bq-io/io/GFW/gain/Hansen_GFC-2020-v1.8_gain_50N_040E.tif",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "raster:bands": [
+        {
+          "data_type": "uint8",
+          "spatial_resolution": 0.00025,
+          "unit": ""
+        }
+      ]
+    }
+  },
+  "bbox": [
+    40.0,
+    40.0,
+    50.0,
+    50.0
+  ],
+  "stac_extensions": [
+    "https://stac-extensions.github.io/projection/v1.0.0/schema.json"
+  ],
+  "collection": "gfw-gain"
+}
