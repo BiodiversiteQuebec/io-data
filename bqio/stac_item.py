@@ -6,6 +6,7 @@ from pystac.extensions.projection import ProjectionExtension
 from datetime import datetime
 import rasterio
 from shapely.geometry import Polygon, mapping
+import requests
 
 
 
@@ -69,5 +70,30 @@ def get_raster_metadata(raster_uri):
 
 
 
+def stac_create_collection(collection_id, title, description, bbox, start_date, end_date, license):
+	spatial_extent = pystac.SpatialExtent(bboxes=[bbox])
+	temporal_extent = pystac.TemporalExtent(intervals=[[datetime.fromisoformat(start_date),datetime.fromisoformat(end_date)]])
+	collection_extent = pystac.Extent(spatial=spatial_extent, temporal=temporal_extent)
+	collection = pystac.Collection(id=collection_id,
+								   title=title,
+	                               description=description,
+	                               extent=collection_extent,
+	                               license=license,
+	                               href=collection_id)
+	return collection
 
+def stac_post_collection(host, collection_id, collection):
+	url = host+"collections"
+	print(url)
+	resp = requests.post(url, json=collection.to_dict())
+	print(resp)
+	result_collection = pystac.Collection.from_dict(resp.json())
+	return result_collection
+
+
+def stac_post_item(host, collection_id, item):
+	url = host+"collections/"+collection_id+"/items"
+	resp = requests.post(url, json=item.to_dict())
+	result_item = pystac.Item.from_dict(resp.json())
+	return result_item
 

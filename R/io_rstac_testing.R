@@ -73,3 +73,22 @@ gdalcubes_options(parallel = TRUE)
 
 raster_cube(st, v) |> plot()
 
+
+
+it_obj=rstac::stac("https://io.biodiversite-quebec.ca/stac/") |> rstac::stac_search(bbox = c(-73,45,-60,60), collections = c('chelsa-monthly'),limit = 5000) |> rstac::get_request()
+
+assets=unlist(lapply(it_obj$features,function(x){names(x$assets)}))
+
+tas = gdalcubes::stac_image_collection(it_obj$features,asset_names=assets,property_filter = function(x) { x[["variable"]] == 'tas'})
+
+
+
+v = gdalcubes::cube_view(srs = "EPSG:32198",  extent = list(t0 = "2016-07-01", t1 = "2016-07-31",
+                                                 left = -2009488, right = 1401061,  top = 2597757, bottom = -715776),
+              dx = 1000, dy = 1000, dt = "P1M",aggregation = "mean", resampling = "near")
+
+gdalcubes::gdalcubes_options(parallel = TRUE)
+
+gdalcubes::raster_cube(tas, v) |> plot()
+
+
