@@ -6,7 +6,7 @@ from run_command import run_command
 import os
 
 
-def tif2cog(input_paths: List[Path], output_cog_path: Path, type: str, value_type: str) -> None:
+def tif2cog(input_paths: List[Path], output_cog_path: Path, type: str, value_type: str="category") -> None:
 
     if (len(input_paths) > 1):
         temp_vrt_path = (Path(tempfile.gettempdir()) / next(tempfile._get_candidate_names())).with_suffix(".vrt")

@@ -1,6 +1,6 @@
-!pip install boto3
-!pip install rasterio
-!pip install shapely
+#!pip install boto3
+#!pip install rasterio
+#!pip install shapely
 
 import pystac
 import os

@@ -1,0 +1,11 @@
+version: "3.9"
+services:
+  gdal-python:
+    build: .
+    image: "gdalpy"
+    environment:
+      ARBUTUS_OBJECT_ACCESS_ID: ${ARBUTUS_OBJECT_ACCESS_ID}
+      ARBUTUS_OBJECT_ACCESS_KEY: ${ARBUTUS_OBJECT_ACCESS_KEY}
+    volumes:
+      - ./bqio:/bqio:rw
+      - ./data:/bqio/data:rw

@@ -9,7 +9,6 @@ from shapely.geometry import Polygon, mapping
 import requests
 
 
-
 def stac_create_item(file_path, file_url, name, datetime, collection, properties={}, units=''):
 	
 	bbox, footprint, crs, resolution, dtype = get_raster_metadata(file_path)
@@ -41,14 +40,13 @@ def stac_create_item(file_path, file_url, name, datetime, collection, properties
 
 	ProjectionExtension.add_to(item)
 	proj_ext=ProjectionExtension.ext(item)
-	if(crs.isnumeric()):
+	if(isinstance(crs, int)):
 		proj_ext.epsg=crs
 	else:
 		proj_ext.epsg=None
 		proj_ext.wkt2=crs
 	item.set_self_href('./'+collection.id+'/'+name+'.json')
 	return item
-
 
 def get_raster_metadata(raster_uri):
     with rasterio.open(raster_uri) as ds:
@@ -67,8 +65,6 @@ def get_raster_metadata(raster_uri):
 
         pixelSizeX, pixelSizeY  = ds.res
         return (bbox, mapping(footprint), crs, pixelSizeX, ds.meta['dtype'])
-
-
 
 def stac_create_collection(collection_id, title, description, bbox, start_date, end_date, license):
 	spatial_extent = pystac.SpatialExtent(bboxes=[bbox])
@@ -90,10 +86,8 @@ def stac_post_collection(host, collection_id, collection):
 	result_collection = pystac.Collection.from_dict(resp.json())
 	return result_collection
 
-
 def stac_post_item(host, collection_id, item):
 	url = host+"collections/"+collection_id+"/items"
 	resp = requests.post(url, json=item.to_dict())
 	result_item = pystac.Item.from_dict(resp.json())
 	return result_item
-
