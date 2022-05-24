@@ -41,6 +41,8 @@ def post_or_put(url: str, data: dict):
 # function to upload file to any S3 client
 def upload_tiff_to_server_S3(s3_client, file_path,host="", bucket="bq-io", destination="io"):
     
+	print("******* file_path ********")
+	print(file_path)
 	""" 
 	s3_client : S3 client that connect and send the files to s3 server 
 				it should has method called upload_file with 4 params

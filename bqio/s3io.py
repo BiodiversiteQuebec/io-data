@@ -1,11 +1,13 @@
 import boto3
 import os
+from lib import utils
 
 def create_s3_res():
+	
 	return boto3.client(
 	    service_name='s3',
-	    aws_access_key_id=os.getenv('ARBUTUS_OBJECT_ACCESS_ID'),
-	    aws_secret_access_key=os.getenv('ARBUTUS_OBJECT_ACCESS_KEY'),
+	    aws_access_key_id=utils.getenv('ARBUTUS_OBJECT_ACCESS_ID'),
+	    aws_secret_access_key=utils.getenv('ARBUTUS_OBJECT_ACCESS_KEY'),
 	    endpoint_url='https://object-arbutus.cloud.computecanada.ca',
 	    use_ssl=True,
 	)

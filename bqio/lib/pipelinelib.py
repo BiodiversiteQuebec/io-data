@@ -103,9 +103,7 @@ class StacItem:
 		return
 	
 	def createPystacItem(self,collection, tiff_url=""):
-		"""create a stac catalog item using pystac library"""
-
-        
+		"""create a stac catalog item using pystac library""" 
 		try:
 			self._item = stac_item.stac_create_item(str(self._cog_local_file_location), tiff_url+"/"+self._filename, self._name, self._datetime, collection, self._properties)
 			self._status._message += '\n'+ " Create Catalog Item:   Catalog item created "
