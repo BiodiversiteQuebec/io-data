@@ -34,4 +34,3 @@ def upload_stac_to_io(stac_path):
 		return False
 	print('STAC catalog updated in cloud!')
 
-

@@ -1,5 +1,6 @@
 # pip install python-decouple
 
+import asyncio
 import os
 from decouple import config
 from shutil import which
@@ -36,7 +37,9 @@ def post_or_put(url: str, data: dict):
         if not r.status_code == 404:
             r.raise_for_status()
     else:
-        r.raise_for_status()
+    	r.raise_for_status()
+	
+		
 
 # function to upload file to any S3 client
 def upload_tiff_to_server_S3(s3_client, file_path,host="", bucket="bq-io", destination="io"):
@@ -89,3 +92,38 @@ def push_to_api(stacobject, api_host:str):
 		post_or_put(f"{api_host}/collections/{stacobject.to_dict()['collection']}/items",stacobject.to_dict())
 		return
 
+def push_json_to_api(app_host: str = "", data_dir: str = "", server_host: str = "",):
+
+    
+	collections = [name for name in os.listdir(f"{app_host}/{data_dir}") if os.path.isdir(f"{app_host}/{data_dir}/{name}")]
+	
+	for collection in collections:
+		
+		with open(f"{app_host}/{data_dir}/{collection}/collection.json") as col:
+			collectionJson = json.load(col)
+			print(f"Collection: {collection}: {collectionJson['id']}")
+			try:
+				post_or_put(f"{server_host}/collections", collectionJson)
+			except Exception as err:
+				print(f"unable to push collection {collectionJson['id']}")
+				print('\n' + traceback.print_exc())
+				pass
+		
+			features = [ name for name in os.listdir(f"{app_host}/{data_dir}/{collection}") if  os.path.isdir(f"{app_host}/{data_dir}/{collection}/{name}")]
+			print("***features***")
+			for feature in features:
+				with open(f"{app_host}/{data_dir}/{collection}/{feature}/{feature}.json") as feat:
+					featureJson = json.load(feat)
+					try:
+						post_or_put(f"{server_host}/collections/{collectionJson['id']}/items", featureJson)
+						print(feature)
+					except Exception as err:
+						print('\n' + traceback.print_exc())
+						pass
+					
+					
+
+				
+
+	
+	 
