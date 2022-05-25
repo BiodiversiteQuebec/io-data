@@ -1,0 +1,436 @@
+{
+  "type": "Collection",
+  "id": "soilgrids",
+  "stac_version": "1.0.0",
+  "description": "SoilGrids aggregated datasets at 1km resolution",
+  "links": [
+    {
+      "rel": "root",
+      "href": "../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./bdod_0-5cm/bdod_0-5cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./bdod_5-15cm/bdod_5-15cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./bdod_15-30cm/bdod_15-30cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./bdod_30-60cm/bdod_30-60cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./bdod_60-100cm/bdod_60-100cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./bdod_100-200cm/bdod_100-200cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./cec_0-5cm/cec_0-5cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./cec_5-15cm/cec_5-15cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./cec_15-30cm/cec_15-30cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./cec_30-60cm/cec_30-60cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./cec_60-100cm/cec_60-100cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./cec_100-200cm/cec_100-200cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./cfvo_0-5cm/cfvo_0-5cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./cfvo_5-15cm/cfvo_5-15cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./cfvo_15-30cm/cfvo_15-30cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./cfvo_30-60cm/cfvo_30-60cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./cfvo_60-100cm/cfvo_60-100cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./cfvo_100-200cm/cfvo_100-200cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./clay_0-5cm/clay_0-5cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./clay_5-15cm/clay_5-15cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./clay_15-30cm/clay_15-30cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./clay_30-60cm/clay_30-60cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./clay_60-100cm/clay_60-100cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./clay_100-200cm/clay_100-200cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./nitrogen_0-5cm/nitrogen_0-5cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./nitrogen_5-15cm/nitrogen_5-15cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./nitrogen_15-30cm/nitrogen_15-30cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./nitrogen_30-60cm/nitrogen_30-60cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./nitrogen_60-100cm/nitrogen_60-100cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./nitrogen_100-200cm/nitrogen_100-200cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./ocd_0-5cm/ocd_0-5cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./ocd_5-15cm/ocd_5-15cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./ocd_15-30cm/ocd_15-30cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./ocd_30-60cm/ocd_30-60cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./ocd_60-100cm/ocd_60-100cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./ocd_100-200cm/ocd_100-200cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./phh2o_0-5cm/phh2o_0-5cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./phh2o_5-15cm/phh2o_5-15cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./phh2o_15-30cm/phh2o_15-30cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./phh2o_30-60cm/phh2o_30-60cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./phh2o_60-100cm/phh2o_60-100cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./phh2o_100-200cm/phh2o_100-200cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./sand_0-5cm/sand_0-5cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./sand_5-15cm/sand_5-15cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./sand_15-30cm/sand_15-30cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./sand_30-60cm/sand_30-60cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./sand_60-100cm/sand_60-100cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./sand_100-200cm/sand_100-200cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./silt_0-5cm/silt_0-5cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./silt_5-15cm/silt_5-15cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./silt_15-30cm/silt_15-30cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./silt_30-60cm/silt_30-60cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./silt_60-100cm/silt_60-100cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./silt_100-200cm/silt_100-200cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./soc_0-5cm/soc_0-5cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./soc_5-15cm/soc_5-15cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./soc_15-30cm/soc_15-30cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./soc_30-60cm/soc_30-60cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./soc_60-100cm/soc_60-100cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./soc_100-200cm/soc_100-200cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./wv0010_0-5cm/wv0010_0-5cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./wv0010_5-15cm/wv0010_5-15cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./wv0010_15-30cm/wv0010_15-30cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./wv0010_30-60cm/wv0010_30-60cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./wv0010_60-100cm/wv0010_60-100cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./wv0010_100-200cm/wv0010_100-200cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./wv0033_0-5cm/wv0033_0-5cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./wv0033_5-15cm/wv0033_5-15cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./wv0033_15-30cm/wv0033_15-30cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./wv0033_30-60cm/wv0033_30-60cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./wv0033_60-100cm/wv0033_60-100cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./wv0033_100-200cm/wv0033_100-200cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./wv1500_0-5cm/wv1500_0-5cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./wv1500_5-15cm/wv1500_5-15cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./wv1500_15-30cm/wv1500_15-30cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./wv1500_30-60cm/wv1500_30-60cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./wv1500_60-100cm/wv1500_60-100cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./wv1500_100-200cm/wv1500_100-200cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "item",
+      "href": "./ocs_0-30cm/ocs_0-30cm.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "parent",
+      "href": "../catalog.json",
+      "type": "application/json"
+    }
+  ],
+  "stac_extensions": [],
+  "title": "Soil Grids datasets",
+  "extent": {
+    "spatial": {
+      "bbox": [
+        [
+          -180,
+          -90,
+          180,
+          90
+        ]
+      ]
+    },
+    "temporal": {
+      "interval": [
+        [
+          "1905-03-31T00:00:00Z",
+          "2016-07-04T00:00:00Z"
+        ]
+      ]
+    }
+  },
+  "license": "CC-BY-SA-4.0"
+}

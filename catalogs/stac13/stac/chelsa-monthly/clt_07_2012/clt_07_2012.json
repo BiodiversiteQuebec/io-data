@@ -1,0 +1,90 @@
+{
+  "type": "Feature",
+  "stac_version": "1.0.0",
+  "id": "clt_07_2012",
+  "properties": {
+    "full_filename": "CHELSA_clt_07_2012_V.2.1.tif",
+    "description": "CHELSA Monthly - 2012-7",
+    "variable": "clt",
+    "version": 2.1,
+    "year": 2012,
+    "month": 7,
+    "proj:epsg": null,
+    "proj:wkt2": "GEOGCS[\"WGS 84\",DATUM[\"WGS_1984\",SPHEROID[\"WGS 84\",6378137,298.257223563,AUTHORITY[\"EPSG\",\"7030\"]],AUTHORITY[\"EPSG\",\"6326\"]],PRIMEM[\"Greenwich\",0],UNIT[\"degree\",0.0174532925199433,AUTHORITY[\"EPSG\",\"9122\"]],AXIS[\"Latitude\",NORTH],AXIS[\"Longitude\",EAST],AUTHORITY[\"EPSG\",\"4326\"]]",
+    "datetime": "2012-07-01T00:00:00Z"
+  },
+  "geometry": {
+    "type": "Polygon",
+    "coordinates": [
+      [
+        [
+          -180.02485599000002,
+          -90.02499999
+        ],
+        [
+          -180.02485599000002,
+          89.99992800000001
+        ],
+        [
+          179.99999999999997,
+          89.99992800000001
+        ],
+        [
+          179.99999999999997,
+          -90.02499999
+        ],
+        [
+          -180.02485599000002,
+          -90.02499999
+        ]
+      ]
+    ]
+  },
+  "links": [
+    {
+      "rel": "root",
+      "href": "../../catalog.json",
+      "type": "application/json"
+    },
+    {
+      "rel": "collection",
+      "href": "../collection.json",
+      "type": "application/json",
+      "title": "CHELSA monthly timeseries"
+    },
+    {
+      "rel": "parent",
+      "href": "../collection.json",
+      "type": "application/json",
+      "title": "CHELSA monthly timeseries"
+    },
+    {
+      "rel": "self",
+      "href": "https://io.biodiversite-quebec.ca/stac/chelsa-monthly/clt_07_2012/clt_07_2012.json",
+      "type": "application/json"
+    }
+  ],
+  "assets": {
+    "clt_07_2012": {
+      "href": "https://object-arbutus.cloud.computecanada.ca/bq-io/io/CHELSA/monthly/CHELSA_clt_07_2012_V.2.1.tif",
+      "type": "image/tiff; application=geotiff; profile=cloud-optimized",
+      "raster:bands": [
+        {
+          "data_type": "uint16",
+          "spatial_resolution": 0.02499999,
+          "unit": ""
+        }
+      ]
+    }
+  },
+  "bbox": [
+    -180.02485599000002,
+    -90.02499999,
+    179.99999999999997,
+    89.99992800000001
+  ],
+  "stac_extensions": [
+    "https://stac-extensions.github.io/projection/v1.0.0/schema.json"
+  ],
+  "collection": "chelsa-monthly"
+}
