@@ -236,7 +236,7 @@ class BqIoStacPipeline:
 
 		return
 
-	def _COG_Pystac_Push(self, collection:Collection, host:str, folder:str):
+	def _COG_Pystac_Push(self, collection:Collection, host:str):
 		"""
 		:params Collection collection: 
 		:params str host: collection location,  exemple: https://object-arbutus.cloud.computecanada.ca
@@ -247,7 +247,7 @@ class BqIoStacPipeline:
 		for item in collection.getItemList():
 				item.getItemFile()
 				item.transformToCog()
-				item.createPystacItem(collection.getCollection(), host+"/"+folder)
+				item.createPystacItem(collection.getCollection(), host+"/"+collection._collection_folder)
 				self._save_COG_file(item, collection)
 				self._pushItemToApi(item.getItem())
 				item.deleteItemFile()
@@ -265,10 +265,10 @@ class BqIoStacPipeline:
 		self._s3_upload_func = fn
 		return
 		
-	def run(self,collection:Collection, host:str, folder:str):
+	def run(self,collection:Collection, host:str):
 		collection_update: Collection = self._createCollection(collection)
 		self._pushCollectionToApi(collection_update.getCollection())
-		self._COG_Pystac_Push(collection,host,folder)
+		self._COG_Pystac_Push(collection,host)
 
 		return
 

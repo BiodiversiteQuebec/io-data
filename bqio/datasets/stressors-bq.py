@@ -69,14 +69,13 @@ stressorCollection:StressorCollection = StressorCollection()
 
 # params to create links of stac items for this collection
 host:str = "https://object-arbutus.cloud.computecanada.ca" # host name of the server stac will be located
-folder:str = "bq-io/io/qc/stressors"       # destination folder in server
 #stac_api_host = "http://localhost:8082" # host where stac api is running
 stac_api_host = "https://io.biodiversite-quebec.ca/stac/" # host where stac api is running
 
 pipeline: BqIoStacPipeline = BqIoStacPipeline()
 pipeline.setS3UploadFunc(upload_file_bq_io)
 pipeline.setPushToApiFunc(push_to_api,stac_api_host)
-pipeline.run(stressorCollection,host,folder)
+pipeline.run(stressorCollection,host)
 
 
 
