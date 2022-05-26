@@ -12,6 +12,7 @@ sys.path.append('./bqio/')
 import tif2cog
 import stac_item
 
+
 # class to model the status 
 class Status:
 
@@ -154,6 +155,10 @@ class Collection:
 	_collection_extent = None
 	_collection_id = None
 	_collection = None
+	_collection_title = None
+	_collection_description = None
+	_collection_license = None
+	_collection_folder = None
 
 	def createCollection(self):
 		"""Return a pystac.Collection"""
@@ -166,11 +171,15 @@ class Collection:
 		self._temporal_extent = kwargs["temporal_extent"]
 		self._collection_extent = kwargs["collection_extent"]
 		self._collection_id = kwargs["collection_id"]
+		self._collection_title = kwargs["collection_title"]
+		self._collection_description = kwargs["collection_description"]
+		self._collection_license = kwargs["collection_license"]
+		self._collection_folder = kwargs["collection_folder"]
 		self._collection = pystac.Collection(id=self._collection_id,
-									title='CHELSA Climatologies Projections',
-									description='CHELSA Climatologies Projections',
+									title=self._collection_title,
+									description=self._collection_description,
 									extent=self._collection_extent,
-									license='CC-BY-SA-4.0',
+									license=self._collection_license,
 									href=self._collection_id)
 		return self._collection
 
@@ -221,8 +230,8 @@ class BqIoStacPipeline:
 			
 		return
     
-	def _save_COG_file(self, item: StacItem):	
-		res = self._s3_upload_func(item)
+	def _save_COG_file(self, item: StacItem, collection: Collection):	
+		res = self._s3_upload_func(item, collection)
 		print(json.dumps(res.__dict__))
 
 		return
@@ -239,7 +248,7 @@ class BqIoStacPipeline:
 				item.getItemFile()
 				item.transformToCog()
 				item.createPystacItem(collection.getCollection(), host+"/"+folder)
-				self._save_COG_file(item)
+				self._save_COG_file(item, collection)
 				self._pushItemToApi(item.getItem())
 				item.deleteItemFile()
 		

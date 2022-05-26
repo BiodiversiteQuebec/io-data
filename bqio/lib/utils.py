@@ -71,13 +71,13 @@ def upload_tiff_to_server_S3(s3_client, file_path,host="", bucket="bq-io", desti
 
 
 # function to upload file for specifics S3 server with a specific S3 client
-def upload_file_bq_sql_backup(item: StacItem):
+def upload_file_bq_io(item: StacItem, collection: Collection):
 
 	s3_client = s3io.create_s3_res();
 	host="https://object-arbutus.cloud.computecanada.ca"
-	bucket = "bq-sql-backup"
+	bucket = "bq-io"
 	filePath = item.getCogFilePath()
-	destination =  "io/"+item.getFileName()
+	destination =  "io/"+collection._collection_folder+'/'+item.getFileName()
 	return upload_tiff_to_server_S3(s3_client,filePath,host, bucket, destination)
 
 def push_to_api(stacobject, api_host:str):

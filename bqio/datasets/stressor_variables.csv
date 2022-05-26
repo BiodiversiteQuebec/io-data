@@ -1,0 +1,12 @@
+filename,id,title,year,datatype
+current_velocity_norm.tif,current_velocity_norm,Vélocité climatique (normalisée),2021-01-01,float32
+current_velocity_raw.tif,current_velocity_raw,Vélocité climatique (brute),2021-01-01,float32
+tendance_norm.tif,tendance_norm,Tendance des températures moyennes (normalisée),2019-01-01,float32
+tendance_raw.tif,tendance_raw,Tendance des températures moyennes (brute),2019-01-01,float32
+divergence_norm.tif,divergence_norm,Divergence des températures moyennes (normalisée),2019-01-01,float32
+divergence_raw.tif,divergence_norm,Divergence des températures moyennes (brute),2019-01-01,float32
+urban_norm.tif,urban_norm,Proportion d’aires urbaines,2020-01-01,float32
+crop_norm.tif,crop_norm,Proportion de zones agricoles,2020-01-01,float32
+wetland_norm.tif,wetlands_norm,Proportion de milieux humides,2020-01-01,float32
+forest_norm.tif,forests_norm,Proportion de forêts,2020-01-01,float32
+routes_pres_absence.tif,routes_pres_absence,Présence de routes,2019-01-01,int16
