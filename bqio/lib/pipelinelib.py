@@ -63,7 +63,7 @@ class StacItem:
 
 	_item = None
 
-	def __init__(self, name, filename, datetime=None, properties=None, file_source_location = None, cog_type = "raw", deleteItemFiles=False):
+	def __init__(self, name, filename, datetime=None, properties=None, file_source_location = None, cog_type = "raw", deleteItemFiles=False, local_server = False):
 		self._name = name
 		self._filename = filename
 		self._datetime = datetime
@@ -72,6 +72,7 @@ class StacItem:
 		self._delete_tiff_local_file = deleteItemFiles
 		self._type = cog_type
 		self._status._message += '\n'+ "Item name : " + name
+		self.local_server = local_server
     
 	def status(self) -> Status:
 		"""Returns the status of the item, it could change after an  opertation is perform"""
@@ -80,9 +81,12 @@ class StacItem:
 	def getItemFile(self):
 		print("getting file from source at: "+ self._file_source_location)
 		try:
-			self._tiff_local_file_location = (Path(tempfile.gettempdir()) / next(tempfile._get_candidate_names())).with_suffix(".tif")
-			fpath = urllib.request.urlretrieve(self._file_source_location, self._tiff_local_file_location)
-			print("file downloaded to: "+str(fpath))
+			if(self.local_server):
+				self._tiff_local_file_location = Path(self._file_source_location)
+			else:
+				self._tiff_local_file_location = (Path(tempfile.gettempdir()) / next(tempfile._get_candidate_names())).with_suffix(".tif")
+				fpath = urllib.request.urlretrieve(self._file_source_location, self._tiff_local_file_location)
+				print("file downloaded to: "+str(fpath))
 		except Exception as err:
 			print("Oops!  There was an error downloading the file: " + format(err)+'\n'+ traceback.format_exc())
 			pass
