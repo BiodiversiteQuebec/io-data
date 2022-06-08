@@ -66,6 +66,8 @@ class StressorCollection(Collection):
 
 stressorCollection:StressorCollection = StressorCollection()
 
+#stressorCollection.setCreateItemFn(newFn)
+
 # params to create links of stac items for this collection
 host:str = "https://object-arbutus.cloud.computecanada.ca" # host name of the server stac will be located
 #stac_api_host = "http://localhost:8082" # host where stac api is running

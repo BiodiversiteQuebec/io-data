@@ -1,7 +1,7 @@
 version: "3.9"
 services:
   gdal-python:
-    build: .docker
+    build: .
     image: "gdalpy"
     environment:
       ARBUTUS_OBJECT_ACCESS_ID: ${ARBUTUS_OBJECT_ACCESS_ID}
