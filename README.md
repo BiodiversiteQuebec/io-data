@@ -117,3 +117,23 @@ run in the cmd:
 - `docker-compose -f docker-compose-api.yml up gdal-api-python`
 
 note: ake sure the stac api server is running and accesible.
+
+### Database Backup
+
+Every day for the last 30 days a catalogdb database's backup is created and stored in cloud server. This process is automatically triggered once a day.
+
+### Restore a Backup
+
+Our backups are store in the cloud server (s3). In order to restore a database you need to do the following steps:
+
+- Download the backup file from the cloud server ( since it is S3 in our case make sure your computer is configured so it can connect to the S3)
+- unzip the backup file.
+- copy the file `docker-compose-io.yml` inside the stac-fastapi repo folder in the server.
+- Run the command `docker-compose -f docker-compose-io.yml up` inside the stac-fastapi repo folder in the server.
+- move backup file to the backup folder inside the docker container.
+- run `docker exec -it stac-db psql` in the server to run the postgresql in the container.
+- Create a new database ` create database newDB`;
+- Restore the backup file in the newDB by : `psql -d newBD < backupfile.sql`.
+- Drop the catalogdb databse inside the container (there are conflicts if we restore directly in catalogdb) by: `drop database catalogdb`.
+- Rename the database `newDB` to `catalogdb`;
+- Restart containers one more time by: `docker-compose -f docker-compose-io.yml up`.
