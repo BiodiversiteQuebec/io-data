@@ -99,11 +99,11 @@ return: list of json object with the same format of the preview ones.
 
 Create first an environment variable file (.env) with the following variables:
 
-`ARBUTUS_OBJECT_ACCESS_ID=...`
-`ARBUTUS_OBJECT_ACCESS_KEY=....`
-`API_PORT=...`
-`API_HOST=0.0.0.0`
-`STAC_API_HOST=..url..`
+- `ARBUTUS_OBJECT_ACCESS_ID=...`
+- `ARBUTUS_OBJECT_ACCESS_KEY=....`
+- `API_PORT=...`
+- `API_HOST=0.0.0.0`
+- `STAC_API_HOST=..url..`
 
 note: if the container is running in the same network as the STAC API server container, you might need to use the api address in the `STAC_API_HOST` variable ex:
 `STAC_API_HOST=STAC_API_HOST=http://172.21.0.3:8082`.
