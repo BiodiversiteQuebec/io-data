@@ -48,7 +48,7 @@ class ItemsPipeline:
 		}
 		return response	
 
-	# use pystac to retreive the collection by using the given id
+	# uses pystac to retreive the collection by using the given id
 	def get_collection_by_id(self,params, operation_log):
 		
 		try:
@@ -67,6 +67,8 @@ class ItemsPipeline:
 			logging.debug(operation_log._description)
 			return None
 
+    # returns StacItem object from params
+	# StacItem object: contains the info needed to create a pystac item
 	def create_item(self, params):
 
 		name:str = params["name"]
@@ -139,7 +141,8 @@ class ItemsPipeline:
 		
 					#del self.params_list[0]
 					#del self.logs[0]		
-							
+
+	# create Pystac Item from StacItem					
 	def create_pystac_item(self, item, collection, host, log):
        
 		if item.status()._ok:
@@ -209,8 +212,6 @@ class ItemsPipeline:
 				log._operation = "UPLOAD_COG_TO_SERVER"
 				log._status = "ok" if status._ok else "error"
 				log._description += f' \n {status._message}'
-
-		
 
 	def get_log_by_id(self, id):
 		filtered = list(filter(lambda log: log._id == id, self.logs ))

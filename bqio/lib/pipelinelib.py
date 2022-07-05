@@ -251,6 +251,7 @@ class BqIoStacPipeline:
 		return
     
 	def _save_COG_file(self, item: StacItem, collection: Collection):	
+		
 		res = self._s3_upload_func(item, collection)
 		logging.debug(json.dumps(res.__dict__))
 
