@@ -1,4 +1,5 @@
 import os
+import logging
 import pystac
 from datetime import datetime
 import tempfile
@@ -63,7 +64,7 @@ class StacItem:
 
 	_item = None
 
-	def __init__(self, name, filename, datetime=None, properties=None, file_source_location = None, cog_type = "raw", deleteItemFiles=False):
+	def __init__(self, name, filename, datetime=None, properties=None, file_source_location = None, cog_type = "raw", deleteItemFiles=False, local_server = False):
 		self._name = name
 		self._filename = filename
 		self._datetime = datetime
@@ -72,19 +73,28 @@ class StacItem:
 		self._delete_tiff_local_file = deleteItemFiles
 		self._type = cog_type
 		self._status._message += '\n'+ "Item name : " + name
+		self.local_server = local_server
+
+		logging.basicConfig(level=logging.DEBUG, format='%(threadName)s %(message)s')
     
 	def status(self) -> Status:
 		"""Returns the status of the item, it could change after an  opertation is perform"""
 		return self._status
 
 	def getItemFile(self):
-		print("getting file from source at: "+ self._file_source_location)
+		logging.debug("getting file from source at: "+ self._file_source_location)
 		try:
-			self._tiff_local_file_location = (Path(tempfile.gettempdir()) / next(tempfile._get_candidate_names())).with_suffix(".tif")
-			fpath = urllib.request.urlretrieve(self._file_source_location, self._tiff_local_file_location)
-			print("file downloaded to: "+str(fpath))
+			if(self.local_server):
+				self._tiff_local_file_location = Path(self._file_source_location)
+			else:
+				self._tiff_local_file_location = (Path(tempfile.gettempdir()) / next(tempfile._get_candidate_names())).with_suffix(".tif")
+				fpath = urllib.request.urlretrieve(self._file_source_location, self._tiff_local_file_location)
+				logging.debug("file downloaded to: "+str(fpath))
+			self._status._message = '\n'+ " getting file: successfully"
 		except Exception as err:
-			print("Oops!  There was an error downloading the file: " + format(err)+'\n'+ traceback.format_exc())
+			self._status._ok = False
+			self._status._message = '\n'+ " getting file:  There was an error getting the file: " + format(err) + '\n'+ traceback.format_exc()
+			logging.debug("Oops!  There was an error downloading the file: " + format(err)+'\n'+ traceback.format_exc())
 			pass
 		return
 
@@ -97,8 +107,8 @@ class StacItem:
 			self._status._message = '\n'+ " Transform: Cog file created at: "+ self._cog_local_file_location
 		except Exception as err:
 			self._status._ok = False
-			self._status._message += '\n'+ " Transform:  There was an error creating the COG file: " + format(err) + '\n'+ traceback.format_exc()
-			print(self._status._message)
+			self._status._message = '\n'+ " Transform:  There was an error creating the COG file: " + format(err) + '\n'+ traceback.format_exc()
+			logging.debug(self._status._message)
 			pass
 
 		return
@@ -107,12 +117,12 @@ class StacItem:
 		"""create a stac catalog item using pystac library""" 
 		try:
 			self._item = stac_item.stac_create_item(str(self._cog_local_file_location), tiff_url+"/"+self._filename, self._name, self._datetime, collection, self._properties)
-			self._status._message += '\n'+ " Create Catalog Item:   Catalog item created "
+			self._status._message = ' \n'+ " Create Catalog Item:   Catalog item created "
 		    
 		except Exception as err:
 			self._status._ok = False
-			self._status._message += '\n'+ " Create Catalog Item:  There was an error creating the Catalog item : " + format(err) + '\n'+ traceback.format_exc()
-			print(self._status._message)
+			self._status._message = ' \n'+ " Create Catalog Item:  There was an error creating the Catalog item : " + format(err) + '\n'+ traceback.format_exc()
+			logging.debug(self._status._message)
 			pass
 
 		return self._item
@@ -130,21 +140,26 @@ class StacItem:
 
 			if self._delete_tiff_local_file:
 				os.remove(self._tiff_local_file_location)
+			self._status._message = ' \n'+ " files Deleted"
 		except Exception as err:
 			self._status._ok = False
-			self._status._message += '\n'+ " Delete file:  There was an error deleting the COG item file : " + format(err)+ '\n'+ traceback.format_exc()
-			print(self._status._message)
+			self._status._message = ' \n'+ " Delete file:  There was an error deleting the COG item file : " + format(err)+ '\n'+ traceback.format_exc()
+			logging.debug(self._status._message)
 			pass
 
 		return
 
 	def loggingStatus(self):
-		print(json.dumps(self._status.__dict__))
+		logging.debug(json.dumps(self._status.__dict__))
 		return
     
 	def getItem(self):
 		return self._item
-
+  
+	def to_dict(self):
+		if self._item is not None:
+			self._item.to_dict()
+		return None
 # class to model stac catalog collection
 class Collection:
 
@@ -160,9 +175,14 @@ class Collection:
 	_collection_license = None
 	_collection_folder = None
 
+	def __init__(self):
+		logging.basicConfig(level=logging.DEBUG, format='%(threadName)s %(message)s')
+
+
+
 	def createCollection(self):
 		"""Return a pystac.Collection"""
-		print("creating collection")
+		logging.debug("creating collection")
 		return self._collection
 
 	def createCollectionFromParams(self, **kwargs):
@@ -185,7 +205,7 @@ class Collection:
 
 	def createItemList(self):
 		"""Return a list of pystac items"""
-		print("creating item list")
+		logging.debug("creating item list")
 		return self._items
 
 	def getItemList(self):
@@ -196,10 +216,10 @@ class Collection:
 		return self._collection
 
 	def print(self):
-		print("***collection***")
-		print(self._collection.to_dict())
+		logging.debug("***collection***")
+		logging.debug(self._collection.to_dict())
 		for item in self._items:
-			print(json.dumps(item.__dict__))
+			logging.debug(json.dumps(item.__dict__))
 
 # class to model pipeline
 class BqIoStacPipeline:
@@ -208,9 +228,9 @@ class BqIoStacPipeline:
 	_api_push_func = None
 	_api_host = None
 
+
 	# status of the item process with messages
 	_status: Status = Status()
-
 	
 	def _createCollection(self, collection:Collection):
 		collection.createCollection()
@@ -219,20 +239,21 @@ class BqIoStacPipeline:
 
 	def _pushCollectionToApi(self, collection:pystac.Collection):
 		if self._api_push_func is not None:
-			print("pushing Collection")
+			logging.debug("pushing Collection")
 			self._api_push_func(collection, self._api_host)
 		return
 
 	def _pushItemToApi(self, item:pystac.Item):
 		if self._api_push_func is not None:
-			print("pushing item")
+			logging.debug("pushing item")
 			self._api_push_func(item, self._api_host)
 			
 		return
     
 	def _save_COG_file(self, item: StacItem, collection: Collection):	
+		
 		res = self._s3_upload_func(item, collection)
-		print(json.dumps(res.__dict__))
+		logging.debug(json.dumps(res.__dict__))
 
 		return
 

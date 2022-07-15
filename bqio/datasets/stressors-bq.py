@@ -6,9 +6,8 @@ import urllib.request
 import traceback
 import csv
 import sys
-sys.path.append('/bqio/')
+sys.path.append('./bqio/')
 from lib.utils import upload_file_bq_io, push_to_api
-
 from lib.pipelinelib import StacItem, Collection, BqIoStacPipeline
 
 
@@ -44,7 +43,7 @@ class StressorCollection(Collection):
 
 	def createItemList(self):
 
-		filename = '/bqio/stressors-qc/stressor_variables.csv'
+		filename = './bqio/stressors-qc/stressor_variables.csv'
 		with open(filename, 'r') as csvfile:
 			datareader = csv.reader(csvfile)
 			next(datareader, None) 
@@ -59,13 +58,15 @@ class StressorCollection(Collection):
 					'variable': row[1],
 				}
 				uri='/bqio/stressors-qc/'+filename
-				newItem: StressorStacItem = StressorStacItem(name, filename, datetime.fromisoformat('2018-01-01'), properties, uri, "raw", False)
+				newItem: StressorStacItem = StressorStacItem(name, filename, datetime.fromisoformat('2018-01-01'), properties, uri, "raw", False, True)
 				self.getItemList().append(newItem)
 
 		return
 
 
 stressorCollection:StressorCollection = StressorCollection()
+
+#stressorCollection.setCreateItemFn(newFn)
 
 # params to create links of stac items for this collection
 host:str = "https://object-arbutus.cloud.computecanada.ca" # host name of the server stac will be located
