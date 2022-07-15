@@ -75,8 +75,6 @@ class StacItem:
 		self._status._message += '\n'+ "Item name : " + name
 		self.local_server = local_server
 
-		logging.basicConfig(level=logging.DEBUG, format='%(threadName)s %(message)s')
-    
 	def status(self) -> Status:
 		"""Returns the status of the item, it could change after an  opertation is perform"""
 		return self._status
@@ -174,11 +172,6 @@ class Collection:
 	_collection_description = None
 	_collection_license = None
 	_collection_folder = None
-
-	def __init__(self):
-		logging.basicConfig(level=logging.DEBUG, format='%(threadName)s %(message)s')
-
-
 
 	def createCollection(self):
 		"""Return a pystac.Collection"""
