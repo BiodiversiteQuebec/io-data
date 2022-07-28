@@ -34,7 +34,7 @@ def stac_create_item(file_path, file_url, name, datetime, collection, properties
 			)
 
 	assets=item.add_asset(
-	    key='data', 
+	    key=name, 
 	    asset=asset
 	)
 

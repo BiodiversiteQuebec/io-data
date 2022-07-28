@@ -146,9 +146,9 @@ class ThisCollection(Collection):
 thisCollection:ThisCollection = ThisCollection()
 
 # params to create links of stac items for this collection
-host:str = "https://object-arbutus.cloud.computecanada.ca" # host name of the server stac will be located
+host:str = "https://object-arbutus.cloud.computecanada.ca/bq-io/io" # host name of the server stac will be located
 #stac_api_host = "http://localhost:8082" # host where stac api is running
-stac_api_host = "https://io.biodiversite-quebec.ca/stac-getway/" # host where stac api is running
+stac_api_host = "https://io.biodiversite-quebec.ca/stac/" # host where stac api is running
 
 pipeline: BqIoStacPipeline = BqIoStacPipeline()
 pipeline.setS3UploadFunc(upload_file_bq_io)

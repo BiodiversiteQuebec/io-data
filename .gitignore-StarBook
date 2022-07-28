@@ -8,7 +8,5 @@
 /test
 /data/*
 /bqio/scripts
-/bqio/stressors-qc
 /bqio/__pycache__
 /stac
-/bqio/lib/__pycache__
