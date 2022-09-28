@@ -8,11 +8,10 @@ import csv
 import sys
 sys.path.append('/bqio/')
 from lib.utils import upload_file_bq_io, push_to_api
-
 from lib.pipelinelib import StacItem, Collection, BqIoStacPipeline
+from pathlib import Path
 
-
-class StressorStacItem(StacItem):
+class ThisStacItem(StacItem):
 
 	# example of getting source tiff file from local path
 	def getItemFile(self):
@@ -25,58 +24,48 @@ class StressorStacItem(StacItem):
 
 		return
 
-class StressorCollection(Collection):
+class ThisCollection(Collection):
 
 	def createCollection(self):
 		"""Overrides the implementation of createCollection from Parent class (Collection)"""
 		
-		spatial_extent = pystac.SpatialExtent(bboxes=[[-80, 45, -56.9, 63]])
-		temporal_extent = pystac.TemporalExtent(intervals=[[datetime.fromisoformat("2018-01-01"),datetime.fromisoformat("2020-12-31")]])
+		spatial_extent = pystac.SpatialExtent(bboxes=[[-180, -60, 180, 85]])
+		temporal_extent = pystac.TemporalExtent(intervals=[[datetime.fromisoformat("2015-01-01"),datetime.fromisoformat("2015-12-31")]])
 		collection_extent = pystac.Extent(spatial=spatial_extent, temporal=temporal_extent)
-		collection_id = 'stressors_qc'
-		collection_title = "Potential Stressors of Québec's Biodiversity"
-		collection_description = 'Indicators calculated across Québec that capture the various stressors of the biodiversity in the province.'
-		collection_license = 'CC-BY-SA-4.0'
-		collection_folder = 'qc/stressors'
+		collection_id ='accessibility_to_cities'
+		collection_title = "Accessibility - Time to access cities"
+		collection_description = 'This global accessibility map enumerates land-based travel time to the nearest densely-populated area for all areas between 85 degrees north and 60 degrees south for a nominal year 2015. Densely-populated areas are defined as contiguous areas with 1,500 or more inhabitants per square kilometer or a majority of built-up land cover types coincident with a population centre of at least 50,000 inhabitants.'
+		collection_license = 'CC-BY-NC-4.0'
+		collection_folder = 'accessibility'
 		collection = self.createCollectionFromParams(collection_title=collection_title, collection_description=collection_description, collection_license = collection_license, spatial_extent=spatial_extent,temporal_extent=temporal_extent,collection_extent=collection_extent, collection_id=collection_id, collection_folder=collection_folder)
-        
+		
 		return collection
 
 	def createItemList(self):
-
-		filename = '/bqio/stressors-qc/stressor_variables.csv'
-		with open(filename, 'r') as csvfile:
-			datareader = csv.reader(csvfile)
-			next(datareader, None) 
-			for row in datareader:
-				folder="https://object-arbutus.cloud.computecanada.ca/bq-io/io/qc/stressors"
-				name=row[1]
-				filename=row[0]
-				uri=folder+filename
-				properties = {
-					'full_filename': filename,
-					'description': row[2],
-					'variable': row[1],
-				}
-				uri='/bqio/stressors-qc/'+filename
-				newItem: StressorStacItem = StressorStacItem(name, filename, datetime.fromisoformat('2018-01-01'), properties, uri, "raw", False)
-				self.getItemList().append(newItem)
+		filename='2015_accessibility_to_cities_v1.0.tif'
+		name='accessibility'
+		properties = {
+			'full_filename': filename,
+			'description': 'Accessibility - Time to access cities in minutes',
+		}
+		path='/bqio/accessibility/'+filename
+		newItem: ThisStacItem = ThisStacItem(name, filename, datetime.fromisoformat('2015-01-01'), properties, path, "raw", False)
+		self.getItemList().append(newItem)
 
 		return
 
 
-stressorCollection:StressorCollection = StressorCollection()
+thisCollection:ThisCollection = ThisCollection()
 
 # params to create links of stac items for this collection
-host:str = "https://object-arbutus.cloud.computecanada.ca" # host name of the server stac will be located
-folder:str = "bq-io/io/qc/stressors"       # destination folder in server
+host:str = "https://object-arbutus.cloud.computecanada.ca/bq-io/io" # host name of the server stac will be located
 #stac_api_host = "http://localhost:8082" # host where stac api is running
 stac_api_host = "https://io.biodiversite-quebec.ca/stac/" # host where stac api is running
 
 pipeline: BqIoStacPipeline = BqIoStacPipeline()
 pipeline.setS3UploadFunc(upload_file_bq_io)
 pipeline.setPushToApiFunc(push_to_api,stac_api_host)
-pipeline.run(stressorCollection,host,folder)
+pipeline.run(thisCollection,host)
 
 
 
