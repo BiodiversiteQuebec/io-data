@@ -57,7 +57,12 @@ class ThisCollection(Collection):
 				{"short":"plants",
 				'long':"All GBIF plant occurrences (kingdom=Plantae)",
 				},
-			]
+				{"short":"reptiles",
+				'long':"All GBIF reptile occurrences (class=Reptilia)"
+				},
+				{"short":"amphibians",
+				'long':"All GBIF reptile occurrences (class=Amphibia)"
+				}]
 		for v in vars:
 			filename='gbif_'+v['short']+'_density_06-2022.tif'
 			name=v['short']+'-heatmap'
