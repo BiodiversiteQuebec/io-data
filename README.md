@@ -1,8 +1,31 @@
 # io-data
 
-Basic pipeline for creating STAC catalog for IO repository of geospatial data in Biodiversité Québec
+Basic tools for creating STAC items and catalogs for IO repository of geospatial data in Biodiversité Québec
 
-#### stacItem Pipeline API
+This repository contains:
+
+1. The docker-commpose-stac-fast-api.yml file to generate the STAC-FASTAPI Docker
+2. A Python library in /bqio for loading raster data into the STAC catalog
+3. An experimental stacItem Pipeline API for sending rasters directly to an API endpoint for automated ingestion into the STAC catalog.
+
+#### STAC-FASTAPI
+
+At the moment, the STAC API is generated from the generic STAC-FASTAPI Docker image (docker-commpose-stac-fast-api.yml). A functioning nginx configuration section is in nginx-stac-endpoint.txt
+
+The db-backup.sh file contains the script to backup the database through regular CRON jobs.
+
+#### Python STAC ingestion library
+
+The Python library located in /bqio is used to
+
+1. Take local or remote files and convert them into Cloud optimized Geotiffs using gdalwarp.
+2. Send the COGs to the Digital Research Alliance object storage using S3 tools.
+3. Extract information from the COGs to populate the information for the STAC items.
+4. Create collections and items using the pystac Python library and send them through POST requests to STAC FASTAPI.
+
+There are a number of example ingestion scripts located in /bqio/datasets/. Note that older scripts were using an older version of the library. These scripts were run in a Docker container on a VM with sufficient resources for the COG conversion and data download/upload to proceed. Some of theses scripts take several days to run.
+
+#### EXPERIMENTAL stacItem Pipeline API
 
 `StacItemPipeline` API allows user to send new stac items to an existing stac collection.
 A simple flask api has been used to expose some endpoints that make the injection possible.
