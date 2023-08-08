@@ -1,0 +1,108 @@
+---
+title: "Example Rstac and gdalcubes scripts"
+author: "Guillaume Larocque"
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+Load required Packages
+
+```{r}
+library(gdalcubes)
+library(rstac)
+```
+
+Connect to STAC catalog
+
+```{r}
+s_obj <- stac("https://io.biodiversite-quebec.ca/stac/")
+```
+
+
+List collections
+```{r}
+collections <- s_obj |> collections() |> get_request()
+```
+Show collections and descriptions
+```{r}
+library(knitr)
+df<-data.frame(id=character(),title=character(),description=character())
+for (c in collections[['collections']]){
+  df<-rbind(df,data.frame(id=c$id,title=c$title,description=c$description))
+}
+kable(df)
+```
+
+Search for a specific collection 
+```{r}
+
+it_obj <- s_obj |>
+  stac_search(collections = "colombia-lc") |>
+  post_request()
+it_obj
+```
+Alternatively 
+```{r}
+it_obj <- s_obj |>
+  collections("colombia-lc") |> items() |>
+  get_request()
+it_obj
+```
+See item properties of first item
+```{r}
+it_obj[['features']][[1]]$properties
+```
+Summarize items
+```{r}
+df<-data.frame(id=character(),datetime=character(), description=character())
+for (f in it_obj[['features']]){
+  df<-rbind(df,data.frame(id=f$id,datetime=f$properties$datetime,description=f$properties$description))
+}
+kable(df)
+```
+
+Get one item and send it to STARS
+```{r}
+library(stars)
+lc1<-read_stars(paste0('/vsicurl/',it_obj[['features']][[4]]$assets$data$href), proxy = TRUE)
+plot(lc1)
+```
+Crop just a part of the raster
+```{r}
+lc1 |> st_crop(st_bbox(c(xmin = 928986, xmax = 1074396, ymax = 914365, ymin = 793894), crs = st_crs(3116)))
+```
+
+Plot it
+```{r}
+plot(lc1)
+```
+
+Save as COG
+```{r}
+lc1 |> st_crop(st_bbox(c(xmin = 928986, xmax = 1074396, ymax = 914365, ymin = 793894), crs = st_crs(3116))) |> write_stars('/home/glaroc/lc1.tif',driver='COG',RasterIO=list('resampling'='mode'),options=c('COMPRESS=DEFLATE','OVERVIEW_RESAMPLING=NEAREST','RESAMPLING=NEAREST','WARP_RESAMPLING=NEAREST','OVERVIEWS=IGNORE_EXISTING'))
+```
+
+Filter assets by properties and create collection
+```{r}
+st <- stac_image_collection(it_obj$features,asset_names=c('data'),
+                           property_filter=function(s){s[['year']]=='2010-2012'})
+st
+```
+
+
+
+
+```{r}
+v <- cube_view(srs = "EPSG:4326", extent = list(t0 = "1992-01-01", t1 = "1998-01-01",
+                                                left = -180, right =180, top = 90, bottom = -90),
+               dx=0.25, dy=0.25, dt="P1Y",
+               aggregation = "mean",
+               resampling = "near")
+```
+
