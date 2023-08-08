@@ -4,13 +4,12 @@ Basic tools for creating STAC items and catalogs for IO repository of geospatial
 
 This repository contains:
 
-1. The docker-commpose-stac-fast-api.yml file to generate the STAC-FASTAPI Docker
-2. A Python library in /bqio for loading raster data into the STAC catalog
-3. An experimental stacItem Pipeline API for sending rasters directly to an API endpoint for automated ingestion into the STAC catalog.
+1. A Python library in /bqio for loading raster data into the STAC catalog
+2. An experimental stacItem Pipeline API for sending rasters directly to an API endpoint for automated ingestion into the STAC catalog.
 
 #### STAC-FASTAPI
 
-At the moment, the STAC API is generated from the generic STAC-FASTAPI Docker image (docker-commpose-stac-fast-api.yml). A functioning nginx configuration section is in nginx-stac-endpoint.txt
+At the moment, the STAC API is generated from the generic STAC-FASTAPI/PGSTAC Docker image https://github.com/ReseauBiodiversiteQuebec/stac-fastapi. A functioning nginx configuration section is in nginx-stac-endpoint.txt
 
 The db-backup.sh file contains the script to backup the database through regular CRON jobs.
 

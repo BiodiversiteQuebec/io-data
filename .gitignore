@@ -12,3 +12,4 @@
 /bqio/__pycache__
 /stac
 /db-backup
+/bqio/sftp-config.json
