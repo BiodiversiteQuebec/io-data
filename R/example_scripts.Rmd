@@ -42,7 +42,6 @@ kable(df)
 
 ##Search for a specific collection 
 ```{r}
-
 it_obj <- s_obj |>
   stac_search(collections = "colombia-lc") |>
   post_request() |> items_fetch()
@@ -137,6 +136,7 @@ lc_cube |> write_tif('~/',prefix='lc2',creation_options=c('COMPRESS=DEFLATE'))
 it_obj <- s_obj |>
   collections("accessibility_to_cities") |> items() |>
   get_request() |> items_fetch()
+
 v <- cube_view(srs = "EPSG:3116", extent = list(t0 = "2015-01-01", t1 = "2015-01-01",
                                                 left = bbox$xmin, right =bbox$xmax, top = bbox$ymax, bottom = bbox$ymin),
                dx=1000, dy=1000, dt="P1D",
@@ -145,7 +145,11 @@ v <- cube_view(srs = "EPSG:3116", extent = list(t0 = "2015-01-01", t1 = "2015-01
 for (i in 1:length(it_obj$features)){
   it_obj$features[[i]]$assets$data$roles='data'
 }
-st <- stac_image_collection(it_obj$features)
+anames<-c()
+for(i in it_obj$features){
+  anames<-c(anames,names(i$assets))
+}
+st <- stac_image_collection(it_obj$features, asset_names=anames)
 lc_cube <- raster_cube(st, v)
 lc_cube |> plot(col=heat.colors)
 ```
@@ -158,8 +162,11 @@ it_obj <- s_obj |>
 for (i in 1:length(it_obj$features)){
   it_obj$features[[i]]$assets[[1]]$roles='data'
 }
-st <- stac_image_collection(it_obj$features, property_filter = function(f){f[['variable']]=='tas' && f[['month']] %in% c(6,7,8)})
-
+anames<-c()
+for(i in it_obj$features){
+  anames<-c(anames,names(i$assets))
+}
+st <- stac_image_collection(it_obj$features,asset_names=anames, property_filter = function(f){f[['variable']]=='tas' && f[['month']] %in% c(6,7,8)})
 
 v <- cube_view(srs = "EPSG:3116", extent = list(t0 = "2010-06-01", t1 = "2020-08-31",
                                                 left = bbox$xmin, right = bbox$xmax, top = bbox$ymax, bottom = bbox$ymin),
@@ -212,7 +219,7 @@ for (n in names(lc_cube)){
 lc_cube2<-do.call(rename_bands,c(list(lc_cube),ll)) 
 
 #This might crash
-lc_cube2 |> apply_pixel('1*(data==10)') |> aggregate_space(method="mean", nx=5000, ny=5000) |> plot(col=heat.colors)
+lc_cube2 |> apply_pixel('1*(data==10)') |> aggregate_space(method="mean", dx=5000, dy=5000) |> plot(col=heat.colors)
 ```
 
 
