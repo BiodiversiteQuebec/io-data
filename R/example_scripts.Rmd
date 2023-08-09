@@ -6,32 +6,33 @@ output: html_document
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = FALSE)
 ```
-
-## R Markdown
 
 Load required Packages
 
 ```{r}
+remotes::install_git("https://github.com/appelmar/gdalcubes_R")
 library(gdalcubes)
 library(rstac)
+library(sf)
+library(knitr)
 ```
 
-Connect to STAC catalog
+##Connect to STAC catalog
 
 ```{r}
 s_obj <- stac("https://io.biodiversite-quebec.ca/stac/")
 ```
 
 
-List collections
+##List collections
 ```{r}
 collections <- s_obj |> collections() |> get_request()
 ```
-Show collections and descriptions
+
+##Show collections and descriptions
 ```{r}
-library(knitr)
 df<-data.frame(id=character(),title=character(),description=character())
 for (c in collections[['collections']]){
   df<-rbind(df,data.frame(id=c$id,title=c$title,description=c$description))
@@ -39,26 +40,28 @@ for (c in collections[['collections']]){
 kable(df)
 ```
 
-Search for a specific collection 
+##Search for a specific collection 
 ```{r}
 
 it_obj <- s_obj |>
   stac_search(collections = "colombia-lc") |>
-  post_request()
+  post_request() |> items_fetch()
 it_obj
 ```
-Alternatively 
+Alternatively
 ```{r}
 it_obj <- s_obj |>
   collections("colombia-lc") |> items() |>
-  get_request()
+  get_request() |> items_fetch()
 it_obj
 ```
-See item properties of first item
+
+
+##See item properties of first item
 ```{r}
 it_obj[['features']][[1]]$properties
 ```
-Summarize items
+##Summarize items
 ```{r}
 df<-data.frame(id=character(),datetime=character(), description=character())
 for (f in it_obj[['features']]){
@@ -67,42 +70,149 @@ for (f in it_obj[['features']]){
 kable(df)
 ```
 
-Get one item and send it to STARS
+##Get one item and send it to STARS
 ```{r}
 library(stars)
 lc1<-read_stars(paste0('/vsicurl/',it_obj[['features']][[4]]$assets$data$href), proxy = TRUE)
 plot(lc1)
 ```
-Crop just a part of the raster
+##Crop just a part of the raster
 ```{r}
-lc1 |> st_crop(st_bbox(c(xmin = 928986, xmax = 1074396, ymax = 914365, ymin = 793894), crs = st_crs(3116)))
+bbox<-st_bbox(c(xmin = 928986, xmax = 1074396, ymax = 914365, ymin = 793894), crs = st_crs(3116))
+lc1 |> st_crop(bbox)
 ```
 
-Plot it
+##Plot it
 ```{r}
 plot(lc1)
 ```
 
-Save as COG
-```{r}
-lc1 |> st_crop(st_bbox(c(xmin = 928986, xmax = 1074396, ymax = 914365, ymin = 793894), crs = st_crs(3116))) |> write_stars('/home/glaroc/lc1.tif',driver='COG',RasterIO=list('resampling'='mode'),options=c('COMPRESS=DEFLATE','OVERVIEW_RESAMPLING=NEAREST','RESAMPLING=NEAREST','WARP_RESAMPLING=NEAREST','OVERVIEWS=IGNORE_EXISTING'))
+##Save as COG, using parameters appropriate for a categorical raster. 
+```{r echo=FALSE}
+lc1 |> st_crop(bbox) |> write_stars('/home/glaroc/lc1.tif',driver='COG',RasterIO=c('resampling'='mode'),options=c('COMPRESS=DEFLATE','OVERVIEW_RESAMPLING=MODE','LEVEL=6','OVERVIEW_COUNT=8','RESAMPLING=MODE','WARP_RESAMPLING=MODE','OVERVIEWS=IGNORE_EXISTING'))
 ```
 
-Filter assets by properties and create collection
+##This is a fix to add the data role to the assets. This is apparently needed for gdalcubes to work properly in newer versions
 ```{r}
-st <- stac_image_collection(it_obj$features,asset_names=c('data'),
-                           property_filter=function(s){s[['year']]=='2010-2012'})
+for (i in 1:length(it_obj$features)){
+  it_obj$features[[i]]$assets$data$roles='data'
+}
+```
+
+##Filter assets by properties and create collection
+```{r echo=FALSE}
+st <- stac_image_collection(it_obj$features, asset_names=c('data'), property_filter = function(f){f[['year']]=='2010-2012'},srs='EPSG:3116')
 st
 ```
 
 
-
-
+##CUBE 
+Build a cube for processing or viewing data. Note that this cube can be in a different CRS and resolution as the original items/files. However, the time dimension has to capture the time frame of the item. dt is expressed as a time period. P1D is a period of 1 day, P1M is a period of 1 month, P1Y is a period of one year. Resampling methods have to fit with the data type. For categorical data, use "mode" or "nearest". For continuous data, use "bilinear". Aggregation is only relevant when multiple rasters overlap. 
 ```{r}
-v <- cube_view(srs = "EPSG:4326", extent = list(t0 = "1992-01-01", t1 = "1998-01-01",
-                                                left = -180, right =180, top = 90, bottom = -90),
-               dx=0.25, dy=0.25, dt="P1Y",
-               aggregation = "mean",
-               resampling = "near")
+v <- cube_view(srs = "EPSG:3116", extent = list(t0 = "2010-01-01", t1 = "2010-01-01",
+                                                left = bbox$xmin, right =bbox$xmax, top = bbox$ymax, bottom = bbox$ymin),
+               dx=30, dy=30, dt="P1D",
+               aggregation = "first",
+               resampling = "mode")
 ```
+
+Match the collection and the cube view to build a raster cube. 
+```{r}
+lc_cube <- raster_cube(st, v)
+```
+
+For some odd reason, this comes out blank. Seems to be an issue with the tif files or the 3116 CRS. 
+```{r}
+lc_cube |> plot(zlim=c(0,325000))
+```
+
+Save as tif
+```{r}
+lc_cube |> write_tif('~/',prefix='lc2',creation_options=c('COMPRESS=DEFLATE'))
+```
+
+
+##Use the Accessibility from cities dataset, but keep the same CRS and extent. Note that we need to adjust the times to match the one from the STAC item. 
+```{r}
+it_obj <- s_obj |>
+  collections("accessibility_to_cities") |> items() |>
+  get_request() |> items_fetch()
+v <- cube_view(srs = "EPSG:3116", extent = list(t0 = "2015-01-01", t1 = "2015-01-01",
+                                                left = bbox$xmin, right =bbox$xmax, top = bbox$ymax, bottom = bbox$ymin),
+               dx=1000, dy=1000, dt="P1D",
+               aggregation = "mean",
+               resampling = "bilinear")
+for (i in 1:length(it_obj$features)){
+  it_obj$features[[i]]$assets$data$roles='data'
+}
+st <- stac_image_collection(it_obj$features)
+lc_cube <- raster_cube(st, v)
+lc_cube |> plot(col=heat.colors)
+```
+
+
+##Use the CHELSA monthly dataset, and create a map of the average for the months on June, July and August from 2010 to 2020
+```{r}
+it_obj <- s_obj |>
+  stac_search(collections = "chelsa-monthly", datetime="2010-06-01T00:00:00Z/2020-08-01T00:00:00Z",limit=5000) |> post_request() |> items_fetch()
+for (i in 1:length(it_obj$features)){
+  it_obj$features[[i]]$assets[[1]]$roles='data'
+}
+st <- stac_image_collection(it_obj$features, property_filter = function(f){f[['variable']]=='tas' && f[['month']] %in% c(6,7,8)})
+
+
+v <- cube_view(srs = "EPSG:3116", extent = list(t0 = "2010-06-01", t1 = "2020-08-31",
+                                                left = bbox$xmin, right = bbox$xmax, top = bbox$ymax, bottom = bbox$ymin),
+               dx=1000, dy=1000, dt="P1M",
+               aggregation = "mean",
+               resampling = "bilinear")
+
+lc_cube <- raster_cube(st, v)
+
+#Rename all bands to 'data' to simplify the process
+ll<-list()
+for (n in names(lc_cube)){
+  ll[[n]]='data'
+}
+lc_cube2<-do.call(rename_bands,c(list(lc_cube),ll)) 
+
+lc_cube2|> reduce_time(c("mean(data)")) |> plot(col=heat.colors)
+```
+
+
+##Use the ESA Land cover data and create a map at 5 km resolution showing the proportion of forests within each pixel
+```{r}
+it_obj <- s_obj |>
+  stac_search(collections = "esacci-lc", limit=5000) |> post_request() |> items_fetch()
+for (i in 1:length(it_obj$features)){
+  it_obj$features[[i]]$assets[[1]]$roles='data'
+}
+
+anames<-c()
+for(i in it_obj$features){
+  anames<-c(anames,names(i$assets))
+}
+
+st <- stac_image_collection(it_obj$features,asset_names=anames, property_filter = function(f){f[['year']]==2010})
+
+
+v <- cube_view(srs = "EPSG:3116", extent = list(t0 = "2010-06-01", t1 = "2020-08-31",
+                                                left = bbox$xmin, right = bbox$xmax, top = bbox$ymax, bottom = bbox$ymin),
+               dx=1000, dy=1000, dt="P1M",
+               aggregation = "first",
+               resampling = "mode")
+
+lc_cube <- raster_cube(st, v)
+
+#Rename all bands to 'data' to simplify the process
+ll<-list()
+for (n in names(lc_cube)){
+  ll[[n]]='data'
+}
+lc_cube2<-do.call(rename_bands,c(list(lc_cube),ll)) 
+
+#This might crash
+lc_cube2 |> apply_pixel('1*(data==10)') |> aggregate_space(method="mean", nx=5000, ny=5000) |> plot(col=heat.colors)
+```
+
 
