@@ -1,0 +1,149 @@
+import pystac
+from datetime import datetime
+import tempfile
+from pathlib import Path
+import urllib.request
+import traceback
+import csv
+import sys
+import os
+from datetime import date
+
+sys.path.append("/bqio/")
+from lib.utils import upload_file_bq_io, push_to_api
+from lib.pipelinelib import StacItem, Collection, BqIoStacPipeline
+from pathlib import Path
+
+
+class ThisStacItem(StacItem):
+
+    # example of getting source tiff file from local path
+    def getItemFile(self):
+
+        try:
+            self._tiff_local_file_location = Path(self._file_source_location)
+        except Exception as err:
+            print(
+                "Oops!  There was an error downloading the file: "
+                + format(err)
+                + "\n"
+                + traceback.format_exc()
+            )
+            pass
+
+        return
+
+
+class ThisCollection(Collection):
+    def createCollection(self):
+        """Overrides the implementation of createCollection from Parent class (Collection)"""
+        spatial_extent = pystac.SpatialExtent(bboxes=[[-180, -90, 180, 90]])
+        temporal_extent = pystac.TemporalExtent(
+            intervals=[
+                [
+                    datetime.fromisoformat("2015-01-01"),
+                    datetime.fromisoformat("2055-01-01"),
+                ]
+            ]
+        )
+        collection_extent = pystac.Extent(
+            spatial=spatial_extent, temporal=temporal_extent
+        )
+        collection_id = "global-mammals"
+        collection_title = "Global habitat availability for mammals from 2015-2055"
+        collection_description = (
+            "Habitat availability for each mammal species (total 5090 species) in 0.25 degrees cells, from 2015 to 2055 in 5 year intervals, for the SSP/RCP scenarios. Developed for the BES-SIM project by the University of Sapienza team using the InSiGHTS (Integrated Scenarios of Global Habitat for Terrestrial Species) model"
+        )
+        collection_license = "CC-BY-NC-4.0"
+        collection_folder = "global_mammals"
+        collection = self.createCollectionFromParams(
+            collection_title=collection_title,
+            collection_description=collection_description,
+            collection_license=collection_license,
+            spatial_extent=spatial_extent,
+            temporal_extent=temporal_extent,
+            collection_extent=collection_extent,
+            collection_id=collection_id,
+            collection_folder=collection_folder,
+        )
+
+        return collection
+
+    def createItemList(self):
+        d0=date(1860,1,1)
+        scenarios = [
+            {
+                "standard_name": "Sustainability",
+                "long_name": "SSP1-RCP2.6",
+                "number": "1",
+                "subdataset": "/scenario_1/metric_1/ebv_cube"
+            },
+            {
+                "standard_name": "Middle of the Road ",
+                "long_name": "SSP2-RCP4.5",
+                "number": "2",
+                "subdataset": "/scenario_2/metric_1/ebv_cube"
+            },
+            {
+                "standard_name": "Regional Rivalry",
+                "long_name": "SSP3-RCP6.0",
+                "number": "3",
+                "subdataset": "/scenario_3/metric_1/ebv_cube"
+            },
+            {
+                "standard_name": "Inequality",
+                "long_name": "SSP4-RCP6.0",
+                "number": "4",
+                "subdataset": "/scenario_4/metric_1/ebv_cube"
+            },
+            {
+                "standard_name": "Fossil-fueled Development",
+                "long_name": "SSP5-RCP8.5",
+                "number": "5",
+                "subdataset": "/scenario_5/metric_1/ebv_cube"
+            },
+        ]
+        for sc in scenarios:
+            with open('/bqio/GEOBON_EBV/species_list.csv') as csvfile:
+                csvread = csv.reader(csvfile)
+                for row in csvread:
+                    i=0
+                    for species in row:
+                        for y in range(2015,2060,5):
+                            i=i+1
+                            print(species)
+                            print(i)
+                            d1=date(y,1,1)
+                            species=species.replace(' ','_')
+                            name=species + "_" + sc["number"] + "_" + str(y)
+                            filename = "global_mammal_" + name + ".tif"
+                            path = "/bqio/GEOBON_EBV/" + filename
+                            #command="gdal_translate -of COG -co COMPRESS=DEFLATE -b %s NETCDF:'/bqio/GEOBON_EBV/baisero_spepop_id5_20220215_v2.nc':%s %s" % (i,sc["subdataset"],path)
+                            #os.system(command)
+                            properties = {"scenario": sc["long_name"], "species": species, "year": y}
+                            newItem: ThisStacItem = ThisStacItem(
+                                name,
+                                filename,
+                                datetime.fromisoformat(str(y) + "-01-01"),
+                                properties,
+                                path,
+                                "raw",
+                                False,
+                            )
+                            self.getItemList().append(newItem)
+        return
+
+
+thisCollection: ThisCollection = ThisCollection()
+
+# params to create links of stac items for this collection
+host: str = "https://object-arbutus.cloud.computecanada.ca/bq-io/io"  # host name of the server stac will be located
+# stac_api_host = "http://localhost:8082" # host where stac api is running
+stac_api_host = (
+    "https://io.biodiversite-quebec.ca/stac/"  # host where stac api is running
+)
+
+pipeline: BqIoStacPipeline = BqIoStacPipeline()
+pipeline.setS3UploadFunc(upload_file_bq_io)
+pipeline.setPushToApiFunc(push_to_api, stac_api_host)
+pipeline.run(thisCollection, host)

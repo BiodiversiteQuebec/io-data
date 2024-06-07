@@ -29,51 +29,28 @@ class ThisCollection(Collection):
 	def createCollection(self):
 		"""Overrides the implementation of createCollection from Parent class (Collection)"""
 		
-		spatial_extent = pystac.SpatialExtent(bboxes=[[-180, -90, 180, 84]])
-		temporal_extent = pystac.TemporalExtent(intervals=[[datetime.fromisoformat("1900-01-01"),datetime.fromisoformat("2022-06-01")]])
+		spatial_extent = pystac.SpatialExtent(bboxes=[[-180, -60, 180, 85]])
+		temporal_extent = pystac.TemporalExtent(intervals=[[datetime.fromisoformat("2015-01-01"),datetime.fromisoformat("2015-12-31")]])
 		collection_extent = pystac.Extent(spatial=spatial_extent, temporal=temporal_extent)
-		collection_id = 'gbif_heatmaps'
-		collection_title = "Occurrence density maps created from GBIF data"
-		collection_description = 'Density maps of all occurrences in GBIF, organized by taxonomic group at an approximately 1 km resolution.'
+		collection_id ='accessibility_to_cities'
+		collection_title = "Accessibility - Time to access cities"
+		collection_description = 'This global accessibility map enumerates land-based travel time to the nearest densely-populated area for all areas between 85 degrees north and 60 degrees south for a nominal year 2015. Densely-populated areas are defined as contiguous areas with 1,500 or more inhabitants per square kilometer or a majority of built-up land cover types coincident with a population centre of at least 50,000 inhabitants.'
 		collection_license = 'CC-BY-NC-4.0'
-		collection_folder = 'gbif_heatmaps'
+		collection_folder = 'accessibility'
 		collection = self.createCollectionFromParams(collection_title=collection_title, collection_description=collection_description, collection_license = collection_license, spatial_extent=spatial_extent,temporal_extent=temporal_extent,collection_extent=collection_extent, collection_id=collection_id, collection_folder=collection_folder)
 		
 		return collection
 
 	def createItemList(self):
-		vars = [{"short":"all",
-				"long":"All GBIF occurrences",
-				},
-				{"short":"arthropods",
-				"long":"All GBIF arhtropod occurrences(phylum=Arthropoda)",
-				},
-				{"short":"birds",
-				"long":"All GBIF bird occurrences (class=Aves)",
-				},
-				{"short":"mammals",
-				"long":"All GBIF mammal occurrences (class=Mammalia)",
-				},
-				{"short":"plants",
-				'long':"All GBIF plant occurrences (kingdom=Plantae)",
-				},
-				{"short":"reptiles",
-				'long':"All GBIF reptile occurrences (class=Reptilia)"
-				},
-				{"short":"amphibians",
-				'long':"All GBIF reptile occurrences (class=Amphibia)"
-				}]
-		for v in vars:
-			filename='gbif_'+v['short']+'_density_06-2022.tif'
-			name=v['short']+'-heatmap'
-			path='https://object-arbutus.cloud.computecanada.ca/bq-io/io/gbif-heatmaps/'+filename
-			properties = {
-				'full_filename': filename,
-                'taxa': v['short'],
-				'description': v['long'],
-			}
-			newItem: ThisStacItem = ThisStacItem(name, filename, datetime.fromisoformat('2006-01-01'), properties, path, "raw", False)
-			self.getItemList().append(newItem)
+		filename='2015_accessibility_to_cities_v1.0.tif'
+		name='accessibility'
+		properties = {
+			'full_filename': filename,
+			'description': 'Accessibility - Time to access cities in minutes',
+		}
+		path='/bqio/accessibility/'+filename
+		newItem: ThisStacItem = ThisStacItem(name, filename, datetime.fromisoformat('2015-01-01'), properties, path, "raw", False)
+		self.getItemList().append(newItem)
 
 		return
 
@@ -89,12 +66,9 @@ pipeline: BqIoStacPipeline = BqIoStacPipeline()
 pipeline.setS3UploadFunc(upload_file_bq_io)
 pipeline.setPushToApiFunc(push_to_api,stac_api_host)
 pipeline.run(thisCollection,host)
-<<<<<<< HEAD
 
 
 
 
 
 	
-=======
->>>>>>> 07b83b631b7424be215758d9cf23bd00e8b756b0
