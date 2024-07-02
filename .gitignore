@@ -11,5 +11,9 @@
 /bqio/stressors-qc
 /bqio/__pycache__
 /stac
-/db-backup
+/backup
+/catalogs
 /bqio/sftp-config.json
+/stac_fastapi
+/scripts
+/data
