@@ -14,9 +14,12 @@ def getenv(varname):
 	return os.getenv(varname) if os.getenv(varname) is not None else  config(varname)
 
 def post_or_put(url: str, data: dict):
-	r = requests.post(url, json=data)
+	# r = requests.post(url, json=data)
 	access_token = getenv("AUTHORIZATION_TOKEN_STAC")
+	print(access_token)
+	print(data)
 	headers={'Content-Type':'application/json','Authorization': 'Bearer {}'.format(access_token)}
+	r = requests.post(url,headers=headers, json=data)
 	print(r.__dict__)
 	if r.status_code == 409:
 		# Exists, so update
