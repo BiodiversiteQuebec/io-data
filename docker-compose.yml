@@ -6,6 +6,7 @@ services:
     environment:
       ARBUTUS_OBJECT_ACCESS_ID: ${ARBUTUS_OBJECT_ACCESS_ID}
       ARBUTUS_OBJECT_ACCESS_KEY: ${ARBUTUS_OBJECT_ACCESS_KEY}
+      AUTHORIZATION_TOKEN_STAC: ${AUTHORIZATION_TOKEN_STAC}
     volumes:
       - ./bqio:/bqio:rw
       - ./data:/bqio/data:rw
