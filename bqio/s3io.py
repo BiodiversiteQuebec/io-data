@@ -14,7 +14,7 @@ def create_s3_res():
 
 def upload_tiff_to_io(file_path, file_name, folder):
 	s3_client = create_s3_res()
-	dest = 'io/'+folder+'/'+file_name.strip(' ')
+	dest = folder+'/'+file_name.strip(' ')
 	try:
 		response = s3_client.upload_file(file_path, 'bq-io', dest, ExtraArgs={'ACL': 'public-read'})
 	except:
