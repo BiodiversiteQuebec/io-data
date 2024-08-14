@@ -67,7 +67,7 @@ def upload_file_bq_io(item: StacItem, collection: Collection):
 	host="https://object-arbutus.cloud.computecanada.ca"
 	bucket = "bq-io"
 	filePath = item.getCogFilePath()
-	destination =  "io/"+collection._collection_folder+'/'+item.getFileName()
+	destination = collection._collection_folder+'/'+item.getFileName()
 	return upload_tiff_to_server_S3(s3_client,filePath,host, bucket, destination)
 
 def upload_file_to_s3(item: StacItem, collection_folder: str):
@@ -75,7 +75,7 @@ def upload_file_to_s3(item: StacItem, collection_folder: str):
 	host="https://object-arbutus.cloud.computecanada.ca"
 	bucket = "bq-sql-backup"
 	filePath = item.getCogFilePath()
-	destination =  "io/"+collection_folder+'/'+item.getFileName()
+	destination =  collection_folder+'/'+item.getFileName()
 	return upload_tiff_to_server_S3(s3_client,filePath,host, bucket, destination)
 
 def push_to_api(stacobject, api_host:str):

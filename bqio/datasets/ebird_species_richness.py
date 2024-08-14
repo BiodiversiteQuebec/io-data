@@ -69,7 +69,7 @@ class ThisCollection(Collection):
 thisCollection:ThisCollection = ThisCollection()
 
 # params to create links of stac items for this collection
-host:str = "https://object-arbutus.cloud.computecanada.ca/bq-io/acer" # host name of the server stac will be located
+host:str = "https://object-arbutus.cloud.computecanada.ca/bq-io/" # host name of the server stac will be located
 #stac_api_host = "http://localhost:8082" # host where stac api is running
 stac_api_host = "https://acer.biodiversite-quebec.ca/stac/" # host where stac api is running
 
